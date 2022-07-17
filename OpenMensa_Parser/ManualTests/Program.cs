@@ -6,20 +6,18 @@ public class Program
 {
     public static void Main (string[] args)
     {
-        //TODO: dereference type var
-        var html = @"https://www.studentenwerk-freiberg.de/freiberg/essen-trinken/speiseplan/de/";
+        string html = "https://www.studentenwerk-freiberg.de/freiberg/essen-trinken/speiseplan/de/";
         //handler init
         HtmlWeb web = new HtmlWeb();
         //(down)load of website via specified url
-        var htmlDoc = web.Load(html);
+        HtmlDocument htmlDoc = web.Load(html);
 
         /* current date */
         // select the root node / starting point of html document
-        ///div[5]
-        var menuNode = htmlDoc.DocumentNode.SelectSingleNode("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[4]");
+        HtmlNode menuNode = htmlDoc.DocumentNode.SelectSingleNode("/html/body/div[1]/div[3]/div[2]/div[3]/div[2]/div/div[4]");
         // collect date from the attribute of html nodes
         HtmlAgilityPack.HtmlNode? menuActiveDayNode = null;
-        foreach (var subMenuNode in menuNode.ChildNodes)
+        foreach (HtmlNode subMenuNode in menuNode.ChildNodes)
         {
             if (subMenuNode.NodeType == HtmlNodeType.Element)
             {
@@ -31,10 +29,8 @@ public class Program
             }
         }
 
-
         /* child nodes of 'menu' */
-        //TODO: null exception
-        foreach (var subMenuNode in menuActiveDayNode.ChildNodes)
+        foreach (HtmlNode subMenuNode in menuActiveDayNode.ChildNodes)
         {
             if (subMenuNode.NodeType == HtmlNodeType.Element)
             {
@@ -47,8 +43,8 @@ public class Program
                 else if (subMenuNode.GetAttributeValue("class", "") == "row")
                 {
                     string categoryXPath = subMenuNode.XPath;
-                    var categoryNode = htmlDoc.DocumentNode.SelectSingleNode(categoryXPath);
-                    foreach (var subCatNode in subMenuNode.ChildNodes)
+                    HtmlNode categoryNode = htmlDoc.DocumentNode.SelectSingleNode(categoryXPath);
+                    foreach (HtmlNode subCatNode in subMenuNode.ChildNodes)
                     {
                         if (subCatNode.NodeType == HtmlNodeType.Element)
                         {
