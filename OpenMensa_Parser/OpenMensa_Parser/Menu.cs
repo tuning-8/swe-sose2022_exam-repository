@@ -1,15 +1,28 @@
-﻿using System;
-using System.Xml;
-using HtmlAgilityPack;
-
-namespace OpenMensa_Parser
+﻿namespace OpenMensa_Parser
 {
-    public class Program
+    public class Menu
     {
-        public static void Main(string[] args)
+        List<string> dateList = new List<string>();
+
+        List<string> ParseDate()
         {
-            Console.WriteLine("Test");
         }
     }
-    
+
+    public class Weekday
+    {
+        struct DishStruct
+        {
+            string dishName;
+            double[] prices;
+            List<string> specialIngerdients;
+        }
+        struct CategoryStruct
+        {
+            string name;
+            List<DishStruct> dishList;
+        }
+        public string Date {get; private set;}
+
+    }
 }
