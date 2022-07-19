@@ -15,5 +15,7 @@ namespace OpenMensa_Parser
         public static int categoryCounter = 0;
         public static int dishCounter = 0;
         public static int priceCounter = 0;
+
+        public static string[] roleNames = new string[] {"student", "employee", "other", "pupil"};      //array contains the customers in the same order as the Mensa-Website
     }
 }
