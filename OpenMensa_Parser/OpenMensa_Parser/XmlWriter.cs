@@ -17,5 +17,25 @@ namespace OpenMensa_Parser
         public static int priceCounter = 0;
 
         public static string[] roleNames = new string[] {"student", "employee", "other", "pupil"};      //array contains the customers in the same order as the Mensa-Website
+
+        public static void WriteXmlFile()
+        {
+
+        }
+
+        public static void WriteOpenMensaStandardInformation(XmlTextWriter xmlWriter)
+        {
+
+        }
+
+        public static void WritePriceInformation(Weekday _weekday, XmlTextWriter xmlWriter)
+        {
+
+        }
+
+        public static void WriteMenuInformation(XmlTextWriter xmlWriter)
+        {
+            
+        }
     }
 }
