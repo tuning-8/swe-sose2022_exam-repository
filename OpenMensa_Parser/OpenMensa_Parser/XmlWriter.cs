@@ -26,7 +26,16 @@ namespace OpenMensa_Parser
 
         public static void WriteOpenMensaStandardInformation(XmlTextWriter xmlWriter)
         {
-
+            xmlWriter.WriteStartDocument();                 //writes: <?xml version="1.0" encoding="utf-8"?>
+            xmlWriter.WriteStartElement("openmensa");
+            xmlWriter.WriteAttributeString("version", "2.1");
+            xmlWriter.WriteAttributeString("xmlns", feedInformation);
+            xmlWriter.WriteAttributeString("xmlns", "xsi", null, schemaInstance);
+            xmlWriter.WriteAttributeString("xsi", "schemaLocation", null, feedInformation + " " + schemaLocation);
+            xmlWriter.WriteStartElement("version");
+            xmlWriter.WriteString(parserVersion);
+            xmlWriter.WriteEndElement();
+            xmlWriter.WriteStartElement("canteen");
         }
 
         public static void WritePriceInformation(Weekday _weekday, XmlTextWriter xmlWriter)
