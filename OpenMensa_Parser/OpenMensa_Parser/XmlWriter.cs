@@ -40,7 +40,15 @@ namespace OpenMensa_Parser
 
         public static void WritePriceInformation(Weekday _weekday, XmlTextWriter xmlWriter)
         {
-
+            foreach(string roleName in roleNames)
+            {
+                xmlWriter.WriteStartElement("price");
+                xmlWriter.WriteAttributeString("role", roleName);
+                xmlWriter.WriteString(_weekday.CategoryList[categoryCounter].DishList[dishCounter].Prices[priceCounter].ToString("F", CultureInfo.InvariantCulture));
+                xmlWriter.WriteEndElement();
+                priceCounter++;
+            }
+            priceCounter = 0;
         }
 
         public static void WriteMenuInformation(XmlTextWriter xmlWriter)
