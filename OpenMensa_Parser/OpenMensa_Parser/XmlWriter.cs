@@ -11,5 +11,9 @@ namespace OpenMensa_Parser
         public static string feedInformation = "http://openmensa.org/open-mensa-v2";
         public static string schemaInstance = "http://www.w3.org/2001/XMLSchema-instance";
         public static string schemaLocation = "http://openmensa.org/open-mensa-v2.xsd";
+
+        public static int categoryCounter = 0;
+        public static int dishCounter = 0;
+        public static int priceCounter = 0;
     }
 }
