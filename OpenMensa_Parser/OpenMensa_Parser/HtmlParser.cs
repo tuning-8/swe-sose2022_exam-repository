@@ -46,6 +46,24 @@ namespace OpenMensa_Parser
             return Nodes;
         }
 
+        /*
+         * function to parse a list of nodes downwards from the 'ParentNode', where the nodes are between two equal "bound attributes"
+         *
+         * e.g.: "category" -> bound attribute; "row" -> returned nodes
+         *
+         * <div class="category" .....>
+         * <div class="row" ....> 
+         * <div class="row" ....> 
+         * <div class="row" ....>
+         * <div class="category" .....>
+         *
+         */
+        public List <HtmlAgilityPack.HtmlNode?> getNodesByXPathBounds(HtmlNode ParentNode, string BoundAttributeName, string AttributeName)
+        {
+            //TODO: implement functionality
+            return new List<HtmlAgilityPack.HtmlNode?>();
+        }
+
         //function to print the inner text of a node with Null exception handling (only for test purpose)
         public void printInnerText(HtmlNode node, string def)
         {
