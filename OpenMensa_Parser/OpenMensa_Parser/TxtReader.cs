@@ -8,12 +8,12 @@ namespace OpenMensa_Parser
 
         public string GetSpecialIngredientsString(int ingredientNumber)
         {
-
+            return "";
         }
 
         public string GetSpecialIngredientsString(string ingredientLetter)
         {
-
+            return "";
         }
 
         public TxtReader(string filePath)
