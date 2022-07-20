@@ -10,24 +10,6 @@ namespace OpenMensa_Parser
         public HtmlDocument htmlDoc {get; private set;}
         HtmlNode rootNode;
 
-        //method to parse a single node, where the attribute name 'class' has the parameter 'className' as attribute value
-        public HtmlAgilityPack.HtmlNode? getNodeByClassName(string className)
-        {
-            HtmlAgilityPack.HtmlNode? Node = null;
-            foreach (var subMenuNode in this.rootNode.ChildNodes)
-            {
-                if (subMenuNode.NodeType == HtmlNodeType.Element)
-                {
-                    if (subMenuNode.GetAttributeValue("class", "") == className)
-                    {
-                        Console.WriteLine(subMenuNode.GetAttributeValue("date", ""));
-                        Node = htmlDoc.DocumentNode.SelectSingleNode((subMenuNode.XPath).ToString());
-                    }
-                }
-            }
-            return Node;
-        }
-
         //function to parse a list of nodes downwards from the 'ParentNode', where the nodes attribute name equals the parameter
         public List <HtmlAgilityPack.HtmlNode?> getNodesByAttribute(HtmlNode ParentNode, string AttributeName, string? AttributeValue)
         {
