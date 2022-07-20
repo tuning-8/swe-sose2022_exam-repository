@@ -6,9 +6,10 @@ namespace OpenMensa_Parser
     public class HtmlParser
     {
         public string htmlURL {get; private set;}
+
         HtmlWeb web;
         public HtmlDocument htmlDoc {get; private set;}
-        HtmlNode rootNode;
+        public HtmlNode rootNode {get; private set;}
 
         //function to parse a list of nodes downwards from the 'ParentNode', where the nodes attribute name equals the parameter
         public List <HtmlAgilityPack.HtmlNode?> getNodesByAttribute(HtmlNode ParentNode, string AttributeName, string? AttributeValue)
