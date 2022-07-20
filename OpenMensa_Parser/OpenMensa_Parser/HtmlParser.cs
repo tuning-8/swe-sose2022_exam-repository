@@ -28,6 +28,18 @@ namespace OpenMensa_Parser
             return Node;
         }
 
+        //function to print the inner text of a node with Null exception handling (only for test purpose)
+        public void printInnerText(HtmlNode node, string def)
+        {
+            try
+            {
+                Console.WriteLine((node.GetDirectInnerText()).Trim());
+            } catch (System.NullReferenceException)
+            {
+                Console.WriteLine(def);
+            }
+        }
+
         public HtmlParser(string url, string node)
         {
             this.htmlURL = url;
