@@ -53,7 +53,49 @@ namespace OpenMensa_Parser
 
         public static void WriteMenuInformation(XmlTextWriter xmlWriter)
         {
+            foreach(Weekday _weekday in Menu.WeekdayList)
+            {
+                DateTime dateTime = DateTime.Parse(_weekday.Date);
 
+                xmlWriter.WriteStartElement("day");
+                xmlWriter.WriteAttributeString("date", dateTime.ToString("yyyy'-'MM'-'dd"));
+
+                foreach(Category category in _weekday.CategoryList)
+                {
+                    xmlWriter.WriteStartElement("category");
+                    xmlWriter.WriteAttributeString("name", category.Name);
+                    foreach(Dish dish in _weekday.CategoryList[categoryCounter].DishList)
+                    {
+                        xmlWriter.WriteStartElement("meal");
+                        xmlWriter.WriteStartElement("name");
+                        xmlWriter.WriteString(dish.DishName);
+                        xmlWriter.WriteEndElement();
+                    
+                        if(_weekday.CategoryList[categoryCounter].DishList[dishCounter].SpecialIngredients.Count != 0)
+                        {
+                            xmlWriter.WriteStartElement("note");
+
+                            foreach(int specialIngretient in _weekday.CategoryList[categoryCounter].DishList[dishCounter].SpecialIngredients)
+                            { 
+                                xmlWriter.WriteString("-" + IngredientsTranslator.TranslateIngredientIndicator(specialIngretient) + " ");   
+                            }
+
+                            xmlWriter.WriteEndElement();
+                        }
+                        WritePriceInformation(_weekday, xmlWriter);
+                        dishCounter++;
+                        xmlWriter.WriteEndElement();
+                    }
+                    categoryCounter++;
+                    dishCounter = 0;
+                    xmlWriter.WriteEndElement();
+                }
+                xmlWriter.WriteEndElement();
+                categoryCounter = 0;
+            }
+            xmlWriter.WriteEndDocument();
+            xmlWriter.Flush();
+            xmlWriter.Close();
         }
     }
 }
