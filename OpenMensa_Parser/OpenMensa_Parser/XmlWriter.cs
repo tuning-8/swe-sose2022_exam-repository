@@ -22,6 +22,9 @@ namespace OpenMensa_Parser
         {
             XmlTextWriter xmlWriter = new XmlTextWriter(fileName, System.Text.Encoding.UTF8);
             xmlWriter.Formatting = Formatting.Indented;
+
+            WriteOpenMensaStandardInformation(xmlWriter);
+            WriteMenuInformation(xmlWriter);
         }
 
         public static void WriteOpenMensaStandardInformation(XmlTextWriter xmlWriter)
