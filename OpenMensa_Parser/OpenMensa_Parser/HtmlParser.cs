@@ -12,7 +12,7 @@ namespace OpenMensa_Parser
         public HtmlNode rootNode {get; private set;}
 
         //function to parse a list of nodes downwards from the 'ParentNode', where the nodes attribute name equals the parameter
-        public List <HtmlAgilityPack.HtmlNode?> getNodesByAttribute(HtmlNode ParentNode, string AttributeName, string? AttributeValue)
+        public List <HtmlAgilityPack.HtmlNode?> getNodesByAttribute(HtmlNode ParentNode, string AttributeName)
         {
             List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
             //iteration through all direct child nodes (one hiarchal level) of the 'ParentNode'
@@ -26,26 +26,40 @@ namespace OpenMensa_Parser
                     {
                         if (attribute.Name == AttributeName)
                         {
-                            //returns the node, which has the proper 'AttributeValue' to the 'AttributeName'
-                            if (AttributeValue != null)
-                            {
-                                if (ChildNode.GetAttributeValue(AttributeName, "") == AttributeValue)
-                                {
-                                    Nodes.Add(htmlDoc.DocumentNode.SelectSingleNode((ChildNode.XPath).ToString()));
-                                }
-                            }
-                            //makeshift: if no specific attribute value is provided to the function it returns the first node matching the 'AttributeName'
-                            //TODO: overload function
-                            else
-                            {
-                                Nodes.Add(htmlDoc.DocumentNode.SelectSingleNode((ChildNode.XPath).ToString()));
-                            }
+                            Nodes.Add(htmlDoc.DocumentNode.SelectSingleNode((ChildNode.XPath).ToString()));
                         }
                     }
                 }
             }
             return Nodes;
         }
+
+        /* function to parse a list of nodes downwards from the 'ParentNode', where the nodes attribute name 
+         * and the nodes attribte value equal the parameters
+         */
+        public List <HtmlAgilityPack.HtmlNode?> getNodesByAttribute(HtmlNode ParentNode, string AttributeName, string AttributeValue)
+        {
+            List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
+            //iteration through all direct child nodes (one hiarchal level) of the 'ParentNode'
+            foreach (var ChildNode in ParentNode.ChildNodes)
+            {
+                if (ChildNode.NodeType == HtmlNodeType.Element)
+                {
+                    //collect all attributes of the current child
+                    var Attributes = ChildNode.GetAttributes();
+                    foreach (var attribute in Attributes)
+                    {
+                        if (attribute.Name == AttributeName 
+                            && ChildNode.GetAttributeValue(AttributeName, "") == AttributeValue)
+                            {
+                                Nodes.Add(htmlDoc.DocumentNode.SelectSingleNode((ChildNode.XPath).ToString()));
+                            }
+                    }
+                }
+            }
+            return Nodes;
+        }
+
 
         /*
          * function to parse a list of nodes downwards from the 'ParentNode', where the nodes are between two equal "bound attributes"
