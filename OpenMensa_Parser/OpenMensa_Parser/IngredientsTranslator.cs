@@ -55,12 +55,12 @@ namespace OpenMena_Parser
 
         public static string TranslateIngredientIndicator(int indicatorInt)
         {
-
+            return IngredientsByIntIndicator[indicatorInt];
         }
 
         public static string TranslateIngredientIndicator(string indicatorString)
         {
-            
+            return  IngredientsByStringIndicator[indicatorString];
         }
     }
 }
