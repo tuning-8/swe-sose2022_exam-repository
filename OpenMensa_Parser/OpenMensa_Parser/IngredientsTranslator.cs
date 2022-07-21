@@ -52,5 +52,15 @@ namespace OpenMena_Parser
             {"PIS", "Pistazien"},
             {"MAC", "Macadamia"}
         };
+
+        public static string TranslateIngredientIndicator(int indicatorInt)
+        {
+
+        }
+
+        public static string TranslateIngredientIndicator(string indicatorString)
+        {
+            
+        }
     }
 }
