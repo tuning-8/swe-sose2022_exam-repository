@@ -37,7 +37,20 @@ namespace OpenMena_Parser
         };
 
         private static Dictionary<string, string> IngredientsByStringIndicator = new Dictionary<string, string>() {
-
+            {"WEI", "Weizen"},
+            {"ROG", "Roggen"},
+            {"GER", "Gerste"},
+            {"HAF", "Hafer"},
+            {"DIN", "Dinkel"},
+            {"KAM", "Kamut"},
+            {"MAN", "Mandeln"},
+            {"HAS", "Haselnüsse"},
+            {"WAL", "Walnüsse"},
+            {"CAS", "Cashewnüsse"},
+            {"PEK", "Pekanüsse"},
+            {"PAR", "Paranüsse"},
+            {"PIS", "Pistazien"},
+            {"MAC", "Macadamia"}
         };
     }
 }
