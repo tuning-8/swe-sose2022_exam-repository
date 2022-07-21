@@ -73,10 +73,23 @@ namespace OpenMensa_Parser
          * <div class="category" .....>
          *
          */
-        public List <HtmlAgilityPack.HtmlNode?> getNodesByXPathBounds(HtmlNode ParentNode, string BoundAttributeName, string AttributeName)
+        public List <HtmlAgilityPack.HtmlNode?> getNodesByNodeBounds(HtmlNode ParentNode, HtmlNode FirstBoundNode,
+            HtmlNode SecondBoundNode, string AttributeName, string AttributeValue)
         {
-            //TODO: implement functionality
-            return new List<HtmlAgilityPack.HtmlNode?>();
+            List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
+            //get the indexes of the bound nodes
+            int indexFirtBound = ParentNode.ChildNodes.IndexOf(FirstBoundNode);
+            int indexSecondBound = ParentNode.ChildNodes.IndexOf(SecondBoundNode);
+            //iterate through the nodes that are between the bounds
+            for (int i = indexFirtBound + 1; i<indexSecondBound; i++)
+            {
+                //add all nodes that are HtmlNodes (not HtmlTextNodes)
+                if (ParentNode.ChildNodes[i].NodeType == HtmlNodeType.Element)
+                {
+                    Nodes.Add(ParentNode.ChildNodes[i]);
+                }
+            }
+            return Nodes;
         }
 
         //function to print the inner text of a node with Null exception handling (only for test purpose)
