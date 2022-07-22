@@ -60,7 +60,6 @@ namespace OpenMensa_Parser
             return Nodes;
         }
 
-
         /*
          * function to parse a list of nodes downwards from the 'ParentNode', where the nodes are between two equal "bound attributes"
          *
@@ -90,18 +89,6 @@ namespace OpenMensa_Parser
                 }
             }
             return Nodes;
-        }
-
-        //function to print the inner text of a node with Null exception handling (only for test purpose)
-        public void printInnerText(HtmlNode node, string def)
-        {
-            try
-            {
-                Console.WriteLine((node.GetDirectInnerText()).Trim());
-            } catch (System.NullReferenceException)
-            {
-                Console.WriteLine(def);
-            }
         }
 
         public HtmlParser(string url, string node)
