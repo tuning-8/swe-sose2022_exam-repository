@@ -17,6 +17,7 @@ namespace OpenMensa_Parser
         public static int priceCounter = 0;
 
         public static string[] roleNames = new string[] {"student", "employee", "other", "pupil"};      //array contains the customers in the same order as the Mensa-Website
+        public static char[] removedCharacters = new char[] {'€', ' '};
 
         public static void WriteXmlFile()
         {
@@ -47,7 +48,7 @@ namespace OpenMensa_Parser
             {
                 xmlWriter.WriteStartElement("price");
                 xmlWriter.WriteAttributeString("role", roleName);
-                xmlWriter.WriteString(_weekday.CategoryList[categoryCounter].DishList[dishCounter].Prices[priceCounter].ToString("F", CultureInfo.InvariantCulture));
+                xmlWriter.WriteString(_weekday.CategoryList[categoryCounter].DishList[dishCounter].Prices[priceCounter].Replace(",", ".").TrimEnd(removedCharacters));
                 xmlWriter.WriteEndElement();
                 priceCounter++;
             }
