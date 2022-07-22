@@ -8,7 +8,7 @@ namespace OpenMensa_Parser
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Test");
+            
         }
     }
 }

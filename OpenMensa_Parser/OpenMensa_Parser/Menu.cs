@@ -6,6 +6,8 @@
 
         List<string> ParseDate()
         {
+            List<string> dates = new List<string>();
+            return dates;
         }
     }
 
