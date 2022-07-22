@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bookstore>
+  <book title="War and Peace">
+    <author>Leo Tolstoy</author>
+    <price>16,99 €</price>
+  </book>
+  <book title="A Song of Ice and Fire">
+    <author>George R. R. Martin</author>
+    <price>24,99 €</price>
+  </book>
+  <book title="Dune">
+    <author>Frank Herbert</author>
+    <price>12,99 €</price>
+  </book>
+</bookstore>
