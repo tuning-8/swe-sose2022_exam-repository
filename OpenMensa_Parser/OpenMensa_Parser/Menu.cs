@@ -10,7 +10,12 @@ namespace OpenMensa_Parser
 
         public void GenrateWeekdayInstances(HtmlParser testParser)
         {
+            this.weekdayNodes = testParser.getNodesByAttribute(testParser.rootNode, "date");
 
+            foreach(HtmlNode weekdayNode in weekdayNodes)
+            {
+                weekdayList.Add(new Weekday(weekdaNode));
+            }
         }
     }
 
