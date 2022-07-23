@@ -21,6 +21,16 @@ namespace OpenMensa_Parser
         private string[] roleNames = new string[] {"student", "employee", "other", "pupil"};
         private char[] removedCharacters = new char[] {'€', ' '};
 
+        public XmlWriter(string fileName, string parserVersion,string openMensaVersion, string feedInformation, string schemaInstance, string schemaLocation)
+        {
+            this.FileName = fileName;
+            this.ParserVersion = parserVersion;
+            this.OpenMensaVersion = openMensaVersion;
+            this.FeedInformation = feedInformation;
+            this.SchemaInstance = schemaInstance;
+            this.SchemaLocation = schemaLocation;
+        }
+        
         public static void WriteXmlFile()
         {
             XmlTextWriter xmlWriter = new XmlTextWriter(FileName, System.Text.Encoding.UTF8);
