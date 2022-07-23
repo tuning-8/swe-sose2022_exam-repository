@@ -5,29 +5,37 @@ namespace OpenMensa_Parser
 {
     public class Menu
     {
-        public List<Weekday> weekdayList = new List<Weekday>();
-        public List<HtmlNode> weekdayNodes = new List<HtmlNode>();
+        HtmlParser parserInstance;
+        List<Weekday> weekdayList = new List<Weekday>();
+        List<HtmlNode> weekdayNodes = new List<HtmlNode>();
 
-        public void GenrateWeekdayInstances(HtmlParser testParser)
+        public void GenrateWeekdayInstances()
         {
-            this.weekdayNodes = testParser.getNodesByAttribute(testParser.rootNode, "date");
+            this.weekdayNodes = this.parserInstance.getNodesByAttribute(this.parserInstance.rootNode, "date");
 
             foreach(HtmlNode weekdayNode in weekdayNodes)
             {
-                weekdayList.Add(new Weekday(weekdaNode));
+                weekdayList.Add(new Weekday(parserInstance, weekdayNode));
             }
+        }
+
+        public Menu (HtmlParser Parser)
+        {
+            this.parserInstance = Parser;
         }
     }
 
     public class Weekday
     {
+        HtmlParser parserInstance;
         public string Date { get; set; }
         public List<Category> categoryList = new List<Category>();
         public List<HtmlNode> categoryNodes = new List<HtmlNode>();
 
-        public Weekday(HtmlNode weekdayNode)
+        public Weekday(HtmlParser Parser, HtmlNode weekdayNode)
         {
-
+            this.parserInstance = Parser;
+            this.Date = weekdayNode.GetAttributeValue("date", "");
         }
 
         public void GenerateCategoryInstances()
