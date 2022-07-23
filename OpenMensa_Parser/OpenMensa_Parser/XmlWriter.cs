@@ -5,24 +5,25 @@ using System.Globalization;
 
 namespace OpenMensa_Parser
 {
-    static class XmlWriter
+    public class XmlWriter
     {
-        public static string fileName = "OpenmenMensaXml.xml";
-        public static string parserVersion = "1.01-1";
-        public static string feedInformation = "http://openmensa.org/open-mensa-v2";
-        public static string schemaInstance = "http://www.w3.org/2001/XMLSchema-instance";
-        public static string schemaLocation = "http://openmensa.org/open-mensa-v2.xsd";
+        public string FileName { get; private set; }
+        public string ParserVersion { get; private set; }
+        public string OpenMensaVersion { get; private set; }
+        public string FeedInformation { get; private set; }
+        public string SchemaInstance { get; private set; }
+        public string SchemaLocation { get; private set; }
 
-        public static int categoryCounter = 0;
-        public static int dishCounter = 0;
-        public static int priceCounter = 0;
+        private int categoryCounter = 0;
+        private int dishCounter = 0;
+        private int priceCounter = 0;
 
-        public static string[] roleNames = new string[] {"student", "employee", "other", "pupil"};
-        public static char[] removedCharacters = new char[] {'€', ' '};
+        private string[] roleNames = new string[] {"student", "employee", "other", "pupil"};
+        private char[] removedCharacters = new char[] {'€', ' '};
 
         public static void WriteXmlFile()
         {
-            XmlTextWriter xmlWriter = new XmlTextWriter(fileName, System.Text.Encoding.UTF8);
+            XmlTextWriter xmlWriter = new XmlTextWriter(FileName, System.Text.Encoding.UTF8);
             xmlWriter.Formatting = Formatting.Indented;
 
             WriteOpenMensaStandardInformation(xmlWriter);
@@ -35,11 +36,11 @@ namespace OpenMensa_Parser
             xmlWriter.WriteStartDocument();                 //writes: <?xml version="1.0" encoding="utf-8"?>
             xmlWriter.WriteStartElement("openmensa");
             xmlWriter.WriteAttributeString("version", "2.1");
-            xmlWriter.WriteAttributeString("xmlns", feedInformation);
-            xmlWriter.WriteAttributeString("xmlns", "xsi", null, schemaInstance);
-            xmlWriter.WriteAttributeString("xsi", "schemaLocation", null, feedInformation + " " + schemaLocation);
+            xmlWriter.WriteAttributeString("xmlns", FeedInformation);
+            xmlWriter.WriteAttributeString("xmlns", "xsi", null, SchemaInstance);
+            xmlWriter.WriteAttributeString("xsi", "schemaLocation", null, FeedInformation + " " + SchemaLocation);
             xmlWriter.WriteStartElement("version");
-            xmlWriter.WriteString(parserVersion);
+            xmlWriter.WriteString(ParserVersion);
             xmlWriter.WriteEndElement();
             xmlWriter.WriteStartElement("canteen");
         }
