@@ -46,12 +46,14 @@ namespace OpenMensa_Parser
 
     public class Category
     {
+        HtmlParser parserInstance;
         public string Name { get; set; }
         public List<Dish> dishList = new List<Dish>();
         public List<HtmlNode> dishNodes = new List<HtmlNode>();
 
-        public Category(HtmlNode categoryNode)
+        public Category(HtmlParser Parser, HtmlNode categoryNode)
         {
+            this.parserInstance = Parser;
 
         }
 
@@ -63,14 +65,15 @@ namespace OpenMensa_Parser
 
     public class Dish
     {
+        HtmlParser parserInstance;
         public string DishName { get; set; }
         public string[] Prices { get; set; }
 
         public List<int> specialIngredients = new List<int>();
 
-        public Dish(HtmlNode dishNode)
+        public Dish(HtmlParser Parser, HtmlNode dishNode)
         {
-            
+            this.parserInstance = Parser;
         }
     }
 }
