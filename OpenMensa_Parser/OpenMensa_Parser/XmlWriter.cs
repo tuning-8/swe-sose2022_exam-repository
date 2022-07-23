@@ -35,7 +35,7 @@ namespace OpenMensa_Parser
             //Writing process:
             xmlWriter.WriteStartDocument();                 //writes: <?xml version="1.0" encoding="utf-8"?>
             xmlWriter.WriteStartElement("openmensa");
-            xmlWriter.WriteAttributeString("version", "2.1");
+            xmlWriter.WriteAttributeString("version", OpenMensaVersion);
             xmlWriter.WriteAttributeString("xmlns", FeedInformation);
             xmlWriter.WriteAttributeString("xmlns", "xsi", null, SchemaInstance);
             xmlWriter.WriteAttributeString("xsi", "schemaLocation", null, FeedInformation + " " + SchemaLocation);
