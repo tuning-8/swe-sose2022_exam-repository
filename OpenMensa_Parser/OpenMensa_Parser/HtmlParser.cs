@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  tuning-8 <tuning_8@gmx.de>
- * @version 1.14
+ * @version 1.15
  *
  * @section LICENSE
  *
@@ -9,7 +9,7 @@
  *
  * @section DESCRIPTION
  *
- * File that includes the 'HtmlParser' class with all methods needed to parse HTML Nodes.
+ * File that includes the 'HtmlParser' class with all methods needed to parse HTML nodes.
  */
 
 using System;
@@ -17,6 +17,11 @@ using HtmlAgilityPack;
 
 namespace OpenMensa_Parser
 {
+    /**
+     * @brief Class that contains methods to parse HTML nodes from a website.
+     *
+     *
+     */
     public class HtmlParser
     {
         public string htmlURL {get; private set;}
@@ -40,7 +45,7 @@ namespace OpenMensa_Parser
         public List <HtmlAgilityPack.HtmlNode?> GetNodesByAttribute(HtmlNode parentNode, string attributeName)
         {
             List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
-            //iteration through all direct child nodes (one hiarchal level) of the 'ParentNode'
+            //iteration through all direct child nodes (one hiarchal level below parent)
             foreach (var ChildNode in parentNode.ChildNodes)
             {
                 if (ChildNode.NodeType == HtmlNodeType.Element)
@@ -49,6 +54,7 @@ namespace OpenMensa_Parser
                     var Attributes = ChildNode.GetAttributes();
                     foreach (var attribute in Attributes)
                     {
+                        //append the nodes to the list if the attribute name matches the parameter
                         if (attribute.Name == attributeName)
                         {
                             Nodes.Add(htmlDoc.DocumentNode.SelectSingleNode((ChildNode.XPath).ToString()));
