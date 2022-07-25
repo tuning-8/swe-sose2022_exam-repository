@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  tuning-8 <tuning_8@gmx.de>
- * @version 1.15
+ * @version 1.16
  *
  * @section LICENSE
  *
@@ -18,9 +18,7 @@ using HtmlAgilityPack;
 namespace OpenMensa_Parser
 {
     /**
-     * @brief Class that contains methods to parse HTML nodes from a website.
-     *
-     *
+     * @brief   Class that contains methods to parse HTML nodes from a website.
      */
     public class HtmlParser
     {
@@ -45,16 +43,22 @@ namespace OpenMensa_Parser
         public List <HtmlAgilityPack.HtmlNode?> GetNodesByAttribute(HtmlNode parentNode, string attributeName)
         {
             List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
-            //iteration through all direct child nodes (one hiarchal level below parent)
+            /**
+             * iteration through all direct child nodes (one hiarchal level below parent)
+             */
             foreach (var ChildNode in parentNode.ChildNodes)
             {
                 if (ChildNode.NodeType == HtmlNodeType.Element)
                 {
-                    //collect all attributes of the current child
+                    /**
+                     * collect all attributes of the current child
+                     */
                     var Attributes = ChildNode.GetAttributes();
                     foreach (var attribute in Attributes)
                     {
-                        //append the nodes to the list if the attribute name matches the parameter
+                        /**
+                         * append the nodes to the list if the attribute name matches the parameter
+                         */
                         if (attribute.Name == attributeName)
                         {
                             Nodes.Add(htmlDoc.DocumentNode.SelectSingleNode((ChildNode.XPath).ToString()));
@@ -81,15 +85,22 @@ namespace OpenMensa_Parser
         public List <HtmlAgilityPack.HtmlNode?> GetNodesByAttribute(HtmlNode parentNode, string attributeName, string attributeValue)
         {
             List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
-            //iteration through all direct child nodes (one hiarchal level) of the 'ParentNode'
+            /**
+             * iteration through all direct child nodes (one hiarchal level below parent)
+             */
             foreach (var ChildNode in parentNode.ChildNodes)
             {
                 if (ChildNode.NodeType == HtmlNodeType.Element)
                 {
-                    //collect all attributes of the current child
+                    /**
+                     * collect all attributes of the current child
+                     */
                     var Attributes = ChildNode.GetAttributes();
                     foreach (var attribute in Attributes)
                     {
+                        /**
+                         * append the nodes to the list if the attribute name and value match the parameters
+                         */
                         if (attribute.Name == attributeName 
                             && ChildNode.GetAttributeValue(attributeName, "") == attributeValue)
                             {
@@ -128,13 +139,19 @@ namespace OpenMensa_Parser
             HtmlNode secondBoundNode, string attributeName, string attributeValue)
         {
             List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
-            //get the indexes of the bound nodes
+            /**
+             * get the indexes of the bound nodes
+             */
             int indexFirtBound = parentNode.ChildNodes.IndexOf(firstBoundNode);
             int indexSecondBound = parentNode.ChildNodes.IndexOf(secondBoundNode);
-            //iterate through the nodes that are between the bounds
+            /**
+             * iterate through the nodes that are between the bounds
+             */
             for (int i = indexFirtBound + 1; i<indexSecondBound; i++)
             {
-                //add all nodes that are HtmlNodes (not HtmlTextNodes)
+                /**
+                 * add all nodes that are HtmlNodes (not HtmlTextNodes)
+                 */
                 if (parentNode.ChildNodes[i].NodeType == HtmlNodeType.Element)
                 {
                     Nodes.Add(parentNode.ChildNodes[i]);
