@@ -21,7 +21,9 @@ namespace OpenMensa_Parser
         private string[] roleNames = new string[] {"student", "employee", "other", "pupil"};
         private char[] removedCharacters = new char[] {'€', ' '};
 
-        public XmlWriter(string fileName, string parserVersion,string openMensaVersion, string feedInformation, string schemaInstance, string schemaLocation)
+        public Menu MenuInstance;
+
+        public XmlWriter(string fileName, string parserVersion,string openMensaVersion, string feedInformation, string schemaInstance, string schemaLocation, Menu menu)
         {
             _fileName = fileName;
             _parserVersion = parserVersion;
@@ -29,6 +31,7 @@ namespace OpenMensa_Parser
             _feedInformation = feedInformation;
             _schemaInstance = schemaInstance;
             _schemaLocation = schemaLocation;
+            this.MenuInstance = menu;
         }
         
         public void WriteXmlFile()
@@ -70,7 +73,7 @@ namespace OpenMensa_Parser
 
         private void WriteMenuInformation(XmlTextWriter xmlWriter)
         {
-            foreach(Weekday day in Menu.WeekdayList)
+            foreach(Weekday day in MenuInstance.WeekdayList)
             {
                 DateTime dateTime = DateTime.Parse(day.Date);
 
@@ -92,9 +95,9 @@ namespace OpenMensa_Parser
                         {
                             xmlWriter.WriteStartElement("note");
 
-                            foreach(int specialIngretient in day.CategoryList[_categoryCounter].DishList[_dishCounter].SpecialIngredients)
+                            foreach(string specialIngretient in day.CategoryList[_categoryCounter].DishList[_dishCounter].SpecialIngredients)
                             { 
-                                xmlWriter.WriteString("-" + IngredientsTranslator.TranslateIngredientIndicator(specialIngretient) + " ");   
+                                xmlWriter.WriteString("-" + OpenMena_Parser.IngredientsTranslator.TranslateIngredientIndicator(specialIngretient) + " ");   
                             }
 
                             xmlWriter.WriteEndElement();
