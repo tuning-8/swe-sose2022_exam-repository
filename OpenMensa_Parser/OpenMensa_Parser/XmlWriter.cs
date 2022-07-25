@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  nicoschurig <nico-schurig@gmx.de>
- * @version 1.01
+ * @version 1.02
  *
  * @section LICENSE
  *
@@ -52,6 +52,14 @@ namespace OpenMensa_Parser
             this.MenuInstance = menu;
         }
         
+        /**
+         * @brief   Method that writes the whole .xml file
+         *
+         * @details A method, that generates an Instance of XmlTextWriter. It then calls the WriteOpenMensaStandardInformation method
+         *          and the WriteMenuInformation method. WriteXmlFile() method is public , so it can be accessed for each potential instance of the
+         *          XmlWriter class. After calling it, the whole .xml file will be written.
+         *
+         */
         public void WriteXmlFile()
         {
             XmlTextWriter xmlWriter = new XmlTextWriter(_xmlFilePath + _fileName, System.Text.Encoding.UTF8);
