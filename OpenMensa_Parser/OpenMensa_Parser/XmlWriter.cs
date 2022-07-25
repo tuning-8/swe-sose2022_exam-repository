@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  nicoschurig <nico-schurig@gmx.de>
- * @version 1.08
+ * @version 1.09
  *
  * @section LICENSE
  *
@@ -90,6 +90,15 @@ namespace OpenMensa_Parser
          */
         public void WriteXmlFile()
         {
+            /**
+            * @brief   Instance of XmlTextWriter class
+            *
+            * @details A new instance of the XmlTextWriterClass is created with the given parameters.
+            *
+            * @param[in]    _xmlFilePath + fileName         Combines the name of the .xml file with its path for saving
+            * @param[in]    System.Text.Encoding.UTF8       Defines the encoding format (UTF8) required by OpenMensa
+            *
+            */
             XmlTextWriter xmlWriter = new XmlTextWriter(_xmlFilePath + _fileName, System.Text.Encoding.UTF8);
             xmlWriter.Formatting = Formatting.Indented;
 
