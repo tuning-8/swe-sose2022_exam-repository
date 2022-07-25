@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  nicoschurig <nico-schurig@gmx.de>
- * @version 1.06
+ * @version 1.07
  *
  * @section LICENSE
  *
@@ -36,6 +36,13 @@ namespace OpenMensa_Parser
 
         private int _priceCounter = 0;
 
+        /**
+         * @brief   Array of customer roles
+         *
+         * @details This Array contains the roles of potential customers of the canteen. Currently the TU Freiberg canteen differentiates
+         *          between students, employee, other and pupil. Each role gets a different price allocated.
+         * 
+         */
         private string[] roleNames = new string[] {"student", "employee", "other", "pupil"};
         private char[] removedCharacters = new char[] {'€', ' '};
 
