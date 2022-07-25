@@ -12,7 +12,7 @@ namespace OpenMensa_Parser
         public HtmlNode rootNode {get; private set;}
 
         //function to parse a list of nodes downwards from the 'ParentNode', where the nodes attribute name equals the parameter
-        public List <HtmlAgilityPack.HtmlNode?> getNodesByAttribute(HtmlNode ParentNode, string AttributeName)
+        public List <HtmlAgilityPack.HtmlNode?> GetNodesByAttribute(HtmlNode ParentNode, string AttributeName)
         {
             List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
             //iteration through all direct child nodes (one hiarchal level) of the 'ParentNode'
@@ -37,7 +37,7 @@ namespace OpenMensa_Parser
         /* function to parse a list of nodes downwards from the 'ParentNode', where the nodes attribute name 
          * and the nodes attribte value equal the parameters
          */
-        public List <HtmlAgilityPack.HtmlNode?> getNodesByAttribute(HtmlNode ParentNode, string AttributeName, string AttributeValue)
+        public List <HtmlAgilityPack.HtmlNode?> GetNodesByAttribute(HtmlNode ParentNode, string AttributeName, string AttributeValue)
         {
             List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
             //iteration through all direct child nodes (one hiarchal level) of the 'ParentNode'
@@ -72,7 +72,7 @@ namespace OpenMensa_Parser
          * <div class="category" .....>
          *
          */
-        public List <HtmlAgilityPack.HtmlNode?> getNodesByNodeBounds(HtmlNode ParentNode, HtmlNode FirstBoundNode,
+        public List <HtmlAgilityPack.HtmlNode?> GetNodesByNodeBounds(HtmlNode ParentNode, HtmlNode FirstBoundNode,
             HtmlNode SecondBoundNode, string AttributeName, string AttributeValue)
         {
             List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
