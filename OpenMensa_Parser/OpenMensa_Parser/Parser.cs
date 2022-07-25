@@ -20,6 +20,10 @@ namespace OpenMensa_Parser
                 HtmlParser menuParser = new HtmlParser(url, entry_node);
                 Menu menu = new Menu(menuParser);
                 menu.GenrateWeekdayInstances();
+                XmlWriter menuWriter = new XmlWriter("Menu.xml", "v1.1", "2.1", 
+                "http://openmensa.org/open-mensa-v2", "http://www.w3.org/2001/XMLSchema-instance",
+                "http://openmensa.org/open-mensa-v2.xsd", menu);
+                menuWriter.WriteXmlFile();
             }
         }
     }
