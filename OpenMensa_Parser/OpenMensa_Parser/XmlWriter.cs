@@ -31,7 +31,7 @@ namespace OpenMensa_Parser
             _schemaLocation = schemaLocation;
         }
         
-        public static void WriteXmlFile()
+        public void WriteXmlFile()
         {
             XmlTextWriter xmlWriter = new XmlTextWriter(_fileName, System.Text.Encoding.UTF8);
             xmlWriter.Formatting = Formatting.Indented;
@@ -40,7 +40,7 @@ namespace OpenMensa_Parser
             WriteMenuInformation(xmlWriter);
         }
 
-        public static void WriteOpenMensaStandardInformation(XmlTextWriter xmlWriter)
+        private void WriteOpenMensaStandardInformation(XmlTextWriter xmlWriter)
         {            
             //Writing process:
             xmlWriter.WriteStartDocument();                 //writes: <?xml version="1.0" encoding="utf-8"?>
@@ -55,7 +55,7 @@ namespace OpenMensa_Parser
             xmlWriter.WriteStartElement("canteen");
         }
 
-        public static void WritePriceInformation(Weekday weekday, XmlTextWriter xmlWriter)
+        private void WritePriceInformation(Weekday weekday, XmlTextWriter xmlWriter)
         {
             foreach(string roleName in roleNames)
             {
@@ -68,7 +68,7 @@ namespace OpenMensa_Parser
             _priceCounter = 0;
         }
 
-        public static void WriteMenuInformation(XmlTextWriter xmlWriter)
+        private void WriteMenuInformation(XmlTextWriter xmlWriter)
         {
             foreach(Weekday day in Menu.WeekdayList)
             {
