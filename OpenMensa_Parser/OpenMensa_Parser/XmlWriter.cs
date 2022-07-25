@@ -1,3 +1,17 @@
+/**
+ * @file
+ * @author  nicoschurig <nico-schurig@gmx.de>
+ * @version 1.00
+ *
+ * @section LICENSE
+ *
+ * Licence information can be found in README.me (https://github.com/tuning-8/swe-sose2022_exam-repository/blob/main/README.md)
+ *
+ * @section DESCRIPTION
+ *
+ * File that includes the 'XmlWriter' class with all methods needed to write info a .xml file.
+ */
+ 
 using System;
 using System.Text;
 using System.Xml;
