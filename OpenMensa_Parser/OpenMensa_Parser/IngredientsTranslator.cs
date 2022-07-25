@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace OpenMena_Parser
+namespace OpenMensa_Parser
 {
     static class IngredientsTranslator
     {
