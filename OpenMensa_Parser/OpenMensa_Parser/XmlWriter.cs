@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  nicoschurig <nico-schurig@gmx.de>
- * @version 1.07
+ * @version 1.08
  *
  * @section LICENSE
  *
@@ -44,6 +44,15 @@ namespace OpenMensa_Parser
          * 
          */
         private string[] roleNames = new string[] {"student", "employee", "other", "pupil"};
+
+        /**
+         * @brief   Array of characters removed from the price
+         *
+         * @details This Array contains the characters that should be removed from the price string. Open Mensa requires the following
+         *          price format: 0.00. The data provided by the TU Freiberg canteen website has the format: 0,00 €. The .TrimEnd() Method
+         *          is called (after the .Replace() method) with the removedCharacters parameter. That results in the required price format.
+         * 
+         */
         private char[] removedCharacters = new char[] {'€', ' '};
 
         public Menu MenuInstance { get; private set; }
@@ -76,7 +85,7 @@ namespace OpenMensa_Parser
          *
          * @details A method, that generates an Instance of XmlTextWriter. It then calls the WriteOpenMensaStandardInformation method
          *          and the WriteMenuInformation method. WriteXmlFile() method is public , so it can be accessed for each potential instance of the
-         *          XmlWriter class. After calling it, the whole .xml file will be written.
+         *          XmlWriter class. After calling it, the whole .xml file will be (over-)written.
          *
          */
         public void WriteXmlFile()
