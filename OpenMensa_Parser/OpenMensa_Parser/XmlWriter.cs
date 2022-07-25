@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  nicoschurig <nico-schurig@gmx.de>
- * @version 1.05
+ * @version 1.06
  *
  * @section LICENSE
  *
@@ -41,6 +41,18 @@ namespace OpenMensa_Parser
 
         public Menu MenuInstance { get; private set; }
 
+        /**
+         * @brief   Constructor that allocates a value to each field.
+         *
+         * @params[in]  fileName            Name of the generated .xml file
+         * @params[in]  parserVersion       Current version of our OpenMensa parser
+         * @params[in]  openMensaVersion    Current version of the OpenMensa project
+         * @params[in]  feedInformation     Provides an url to the current OpenMensa Feed
+         * @params[in]  schemaInstance      Provides information about the xml schema instance
+         * @params[in]  schemaLocation      Download of the OpenMensa xml schema
+         * @params[in]  menu                Instance of the Menu class, loaded with menu infomation
+          *@params[in]  xmlFilePath         File path where the .xml file is saved at 
+         */
         public XmlWriter(string fileName, string parserVersion,string openMensaVersion, string feedInformation, string schemaInstance, string schemaLocation, Menu menu, string xmlFilePath)
         {
             _fileName = fileName;
@@ -53,7 +65,7 @@ namespace OpenMensa_Parser
         }
         
         /**
-         * @brief   Method that writes the whole .xml file
+         * @brief   Method that writes the whole .xml file.
          *
          * @details A method, that generates an Instance of XmlTextWriter. It then calls the WriteOpenMensaStandardInformation method
          *          and the WriteMenuInformation method. WriteXmlFile() method is public , so it can be accessed for each potential instance of the
