@@ -59,15 +59,13 @@ namespace OpenMensa_Parser
 
         private void WritePriceInformation(Dish dish, XmlTextWriter xmlWriter)
         {
-            foreach(string roleName in roleNames)
+            for(int i = 0; i < dish.Prices.Length(); i++)
             {
                 xmlWriter.WriteStartElement("price");
-                xmlWriter.WriteAttributeString("role", roleName);
-                xmlWriter.WriteString(dish.Prices[_priceCounter].Replace(',', '.').TrimEnd(removedCharacters));
+                xmlWriter.WriteAttributeString("role", roleNames[i]);
+                xmlWriter.WriteString(dish.Prices[i].Replace(',', '.').TrimEnd(removedCharacters));
                 xmlWriter.WriteEndElement();
-                _priceCounter++;
             }
-            _priceCounter = 0;
         }
 
         private void WriteMenuInformation(XmlTextWriter xmlWriter)
