@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  nicoschurig <nico-schurig@gmx.de>
- * @version 1.02
+ * @version 1.03
  *
  * @section LICENSE
  *
@@ -69,6 +69,15 @@ namespace OpenMensa_Parser
             WriteMenuInformation(xmlWriter);
         }
 
+        /**
+         * @brief   Method that writes the declaration into the .xml file.
+         *
+         * @details A method that is called by the WriteXmlFile() method. It writes the deklaration into the .xml file, which is the initiation
+         *          of the .xml file.
+         *
+         * @param[in]   xmlWriter      Instance of XmlTextWriter class
+         *
+         */
         private void WriteOpenMensaStandardInformation(XmlTextWriter xmlWriter)
         {            
             //Writing process:
