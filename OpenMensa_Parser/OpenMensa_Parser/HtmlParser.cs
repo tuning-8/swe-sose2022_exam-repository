@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  tuning-8 <tuning_8@gmx.de>
- * @version 1.16
+ * @version 1.17
  *
  * @section LICENSE
  *
@@ -43,22 +43,16 @@ namespace OpenMensa_Parser
         public List <HtmlAgilityPack.HtmlNode?> GetNodesByAttribute(HtmlNode parentNode, string attributeName)
         {
             List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
-            /**
-             * iteration through all direct child nodes (one hiarchal level below parent)
-             */
+            // iteration through all direct child nodes (one hiarchal level below parent)
             foreach (var ChildNode in parentNode.ChildNodes)
             {
                 if (ChildNode.NodeType == HtmlNodeType.Element)
                 {
-                    /**
-                     * collect all attributes of the current child
-                     */
+                    // collect all attributes of the current child
                     var Attributes = ChildNode.GetAttributes();
                     foreach (var attribute in Attributes)
                     {
-                        /**
-                         * append the nodes to the list if the attribute name matches the parameter
-                         */
+                        // append the nodes to the list if the attribute name matches the parameter
                         if (attribute.Name == attributeName)
                         {
                             Nodes.Add(htmlDoc.DocumentNode.SelectSingleNode((ChildNode.XPath).ToString()));
@@ -85,22 +79,16 @@ namespace OpenMensa_Parser
         public List <HtmlAgilityPack.HtmlNode?> GetNodesByAttribute(HtmlNode parentNode, string attributeName, string attributeValue)
         {
             List <HtmlAgilityPack.HtmlNode?> Nodes = new List <HtmlAgilityPack.HtmlNode?>();
-            /**
-             * iteration through all direct child nodes (one hiarchal level below parent)
-             */
+            // iteration through all direct child nodes (one hiarchal level below parent)
             foreach (var ChildNode in parentNode.ChildNodes)
             {
                 if (ChildNode.NodeType == HtmlNodeType.Element)
                 {
-                    /**
-                     * collect all attributes of the current child
-                     */
+                    // collect all attributes of the current child
                     var Attributes = ChildNode.GetAttributes();
                     foreach (var attribute in Attributes)
                     {
-                        /**
-                         * append the nodes to the list if the attribute name and value match the parameters
-                         */
+                        // append the nodes to the list if the attribute name and value match the parameters
                         if (attribute.Name == attributeName 
                             && ChildNode.GetAttributeValue(attributeName, "") == attributeValue)
                             {
