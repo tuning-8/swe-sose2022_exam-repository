@@ -118,28 +118,37 @@ namespace OpenMensa_Parser
             this._parserInstance = parser;
             this._dishNode = dishNode;
 
+            //GetNodesByAttribute returns allways a list -> iteration through one element -> TODO: improvements needed
             foreach (HtmlNode dishTitle in this._parserInstance.GetNodesByAttribute(this._dishNode, "class", "menu_title"))
             {
                 this.DishName = dishTitle.GetDirectInnerText().Trim();
             }
             foreach (HtmlNode dishDescription in this._parserInstance.GetNodesByAttribute(this._dishNode, "class", "description"))
             {
+                //add the dish description to the title of the dish
                 if (dishDescription.ChildNodes[1].GetDirectInnerText().Trim() != "")
                 {
                     this.DishName += " - " + dishDescription.ChildNodes[1].GetDirectInnerText().Trim();
                 }
+                //parent node for the ingredients (one element list as well)
                 foreach (HtmlNode dishCharacterisation in this._parserInstance.GetNodesByAttribute(dishDescription, "class", "characterisation"))
                 {
+                    //write all special ingredients to the list
                     foreach (HtmlNode dishIngredient in this._parserInstance.GetNodesByAttribute(dishCharacterisation, "title"))
                     {
                         this.SpecialIngredients.Add(dishIngredient.GetDirectInnerText().Trim());
                     }
                 }
+                //parent node for the prices (one element list as well)
                 foreach (HtmlNode dishPrice in this._parserInstance.GetNodesByAttribute(dishDescription, "class", "price"))
                 {
+                    //indexer for the price array -> additionally needed because of foreach loop (but in this case better than for)
+                    int priceIndexer=0;
                     foreach (HtmlNode dishPriceClass in this._parserInstance.GetNodesByAttribute(dishPrice, "title"))
                     {
-                        this.SpecialIngredients.Add(dishPriceClass.GetDirectInnerText().Trim());
+                        //write all prices to the array
+                        this.Prices[priceIndexer] = dishPriceClass.GetDirectInnerText().Trim();
+                        priceIndexer++;
                     }
                 }
             }

@@ -13,17 +13,16 @@ namespace OpenMensa_Parser
         private readonly string _feedInformation;
         private readonly string _schemaInstance;
         private readonly string _schemaLocation;
+        private readonly string _xmlFilePath;
 
-        private int _categoryCounter = 0;
-        private int _dishCounter = 0;
         private int _priceCounter = 0;
 
         private string[] roleNames = new string[] {"student", "employee", "other", "pupil"};
         private char[] removedCharacters = new char[] {'€', ' '};
 
-        public Menu MenuInstance;
+        public Menu MenuInstance { get; private set; }
 
-        public XmlWriter(string fileName, string parserVersion,string openMensaVersion, string feedInformation, string schemaInstance, string schemaLocation, Menu menu)
+        public XmlWriter(string fileName, string parserVersion,string openMensaVersion, string feedInformation, string schemaInstance, string schemaLocation, Menu menu, string xmlFilePath)
         {
             _fileName = fileName;
             _parserVersion = parserVersion;
@@ -36,7 +35,7 @@ namespace OpenMensa_Parser
         
         public void WriteXmlFile()
         {
-            XmlTextWriter xmlWriter = new XmlTextWriter(_fileName, System.Text.Encoding.UTF8);
+            XmlTextWriter xmlWriter = new XmlTextWriter(_xmlFilePath + _fileName, System.Text.Encoding.UTF8);
             xmlWriter.Formatting = Formatting.Indented;
 
             WriteOpenMensaStandardInformation(xmlWriter);
@@ -58,17 +57,15 @@ namespace OpenMensa_Parser
             xmlWriter.WriteStartElement("canteen");
         }
 
-        private void WritePriceInformation(Weekday weekday, XmlTextWriter xmlWriter)
+        private void WritePriceInformation(Dish dish, XmlTextWriter xmlWriter)
         {
-            foreach(string roleName in roleNames)
+            for(int i = 0; i < dish.Prices.Length; i++)
             {
                 xmlWriter.WriteStartElement("price");
-                xmlWriter.WriteAttributeString("role", roleName);
-                xmlWriter.WriteString(weekday.CategoryList[_categoryCounter].DishList[_dishCounter].Prices[_priceCounter].Replace(",", ".").TrimEnd(removedCharacters));
+                xmlWriter.WriteAttributeString("role", roleNames[i]);
+                xmlWriter.WriteString(dish.Prices[i].Replace(',', '.').TrimEnd(removedCharacters));
                 xmlWriter.WriteEndElement();
-                _priceCounter++;
             }
-            _priceCounter = 0;
         }
 
         private void WriteMenuInformation(XmlTextWriter xmlWriter)
@@ -84,34 +81,30 @@ namespace OpenMensa_Parser
                 {
                     xmlWriter.WriteStartElement("category");
                     xmlWriter.WriteAttributeString("name", category.Name);
-                    foreach(Dish dish in day.CategoryList[_categoryCounter].DishList)
+                    foreach(Dish dish in category.DishList)
                     {
                         xmlWriter.WriteStartElement("meal");
                         xmlWriter.WriteStartElement("name");
                         xmlWriter.WriteString(dish.DishName);
                         xmlWriter.WriteEndElement();
                     
-                        if(day.CategoryList[_categoryCounter].DishList[_dishCounter].SpecialIngredients.Count != 0)
+                        if(dish.SpecialIngredients.Count != 0)
                         {
                             xmlWriter.WriteStartElement("note");
 
-                            foreach(string specialIngretient in day.CategoryList[_categoryCounter].DishList[_dishCounter].SpecialIngredients)
+                            foreach(string specialIngretient in dish.SpecialIngredients)
                             { 
                                 xmlWriter.WriteString("-" + OpenMena_Parser.IngredientsTranslator.TranslateIngredientIndicator(specialIngretient) + " ");   
                             }
 
                             xmlWriter.WriteEndElement();
                         }
-                        WritePriceInformation(day, xmlWriter);
-                        _dishCounter++;
+                        WritePriceInformation(dish, xmlWriter);
                         xmlWriter.WriteEndElement();
                     }
-                    _categoryCounter++;
-                    _dishCounter = 0;
                     xmlWriter.WriteEndElement();
                 }
                 xmlWriter.WriteEndElement();
-                _categoryCounter = 0;
             }
             xmlWriter.WriteEndDocument();
             xmlWriter.Flush();
