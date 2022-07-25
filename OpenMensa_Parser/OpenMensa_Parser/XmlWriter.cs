@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  nicoschurig <nico-schurig@gmx.de>
- * @version 1.00
+ * @version 1.01
  *
  * @section LICENSE
  *
@@ -9,7 +9,7 @@
  *
  * @section DESCRIPTION
  *
- * File that includes the 'XmlWriter' class with all methods needed to write into a .xml file.
+ * File that includes the 'XmlWriter' class with all methods needed to write information into a .xml file.
  */
 
 using System;
@@ -19,6 +19,11 @@ using System.Globalization;
 
 namespace OpenMensa_Parser
 {
+    /**
+     * @brief Class that contains methods to write provided information into a .xml file.
+     *
+     *
+     */
     public class XmlWriter
     {
         private readonly string _fileName;
