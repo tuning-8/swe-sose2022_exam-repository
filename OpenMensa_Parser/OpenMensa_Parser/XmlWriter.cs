@@ -9,9 +9,9 @@
  *
  * @section DESCRIPTION
  *
- * File that includes the 'XmlWriter' class with all methods needed to write info a .xml file.
+ * File that includes the 'XmlWriter' class with all methods needed to write into a .xml file.
  */
- 
+
 using System;
 using System.Text;
 using System.Xml;
