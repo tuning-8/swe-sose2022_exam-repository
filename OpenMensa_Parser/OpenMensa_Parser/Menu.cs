@@ -5,45 +5,45 @@ namespace OpenMensa_Parser
 {
     public class Menu
     {
-        HtmlParser parserInstance;
-        List<Weekday> weekdayList = new List<Weekday>();
-        List<HtmlNode> weekdayNodes = new List<HtmlNode>();
+        private HtmlParser _parserInstance;
+        public List<Weekday> WeekdayList { get; private set; } = new List<Weekday>();
+        private List<HtmlNode> _weekdayNodes = new List<HtmlNode>();
 
         //function to parse the dates -> weekdayNodes and create instances of Weekday -> weekdayList
         public void GenrateWeekdayInstances()
         {
             //get all dates (class = 'menu_day', date=dd.mm.yyyy) of the week as nodes
-            this.weekdayNodes = this.parserInstance.getNodesByAttribute(this.parserInstance.rootNode, "date");
+            this._weekdayNodes = this._parserInstance.GetNodesByAttribute(this._parserInstance.rootNode, "date");
 
             //iterate through the date nodes
-            for (int i = 0; i<weekdayNodes.Count; i++)
+            for (int i = 0; i<_weekdayNodes.Count; i++)
             {
                 //create a new instance of a weekday class foreach date in the list
-                //pass the parserInstance to the Weekday class
-                weekdayList.Add(new Weekday(parserInstance, weekdayNodes[i]));
+                //pass the _parserInstance to the Weekday class
+                WeekdayList.Add(new Weekday(_parserInstance, _weekdayNodes[i]));
                 //call the function parse the categories
-                weekdayList[i].GenerateCategoryInstances();
+                WeekdayList[i].GenerateCategoryInstances();
             }
         }
 
-        public Menu (HtmlParser Parser)
+        public Menu (HtmlParser parser)
         {
-            this.parserInstance = Parser;
+            this._parserInstance = parser;
         }
     }
 
     public class Weekday
     {
-        HtmlParser parserInstance;
-        HtmlNode weekdayNode;
-        public string Date { get; set; }
-        public List<Category> categoryList = new List<Category>();
-        public List<HtmlNode> categoryNodes = new List<HtmlNode>();
+        private HtmlParser _parserInstance;
+        private HtmlNode _weekdayNode;
+        public string Date { get; private set; }
+        public List<Category> CategoryList { get; private set; } = new List<Category>();
+        private List<HtmlNode> _categoryNodes = new List<HtmlNode>();
 
-        public Weekday(HtmlParser Parser, HtmlNode weekdayNode)
+        public Weekday(HtmlParser parser, HtmlNode weekdayNode)
         {
-            this.parserInstance = Parser;
-            this.weekdayNode = weekdayNode;
+            this._parserInstance = parser;
+            this._weekdayNode = weekdayNode;
             //extract the date string from the node
             this.Date = weekdayNode.GetAttributeValue("date", "");
         }
@@ -52,40 +52,40 @@ namespace OpenMensa_Parser
         public void GenerateCategoryInstances()
         {
             //get all categories of the current weekday as nodes
-            this.categoryNodes = this.parserInstance.getNodesByAttribute(weekdayNode, "class", "category ");
+            this._categoryNodes = this._parserInstance.GetNodesByAttribute(_weekdayNode, "class", "category ");
 
             //iterate through the category nodes
-            for (int i = 0; i<categoryNodes.Count; i++)
+            for (int i = 0; i<_categoryNodes.Count; i++)
             {
                 try
                 {
-                    categoryList.Add(new Category(parserInstance, categoryNodes[i], categoryNodes[i+1]));
+                    CategoryList.Add(new Category(_parserInstance, _categoryNodes[i], _categoryNodes[i+1]));
                 }
                 //the second bound for the last category is no category node but the last child of the date node
                 catch (System.ArgumentOutOfRangeException)
                 {
-                    categoryList.Add(new Category(parserInstance, categoryNodes[i], weekdayNode.LastChild));
+                    CategoryList.Add(new Category(_parserInstance, _categoryNodes[i], _weekdayNode.LastChild));
                 }
                 //call the function parse the categories
-                categoryList[i].GenerateDishInstances();
+                CategoryList[i].GenerateDishInstances();
             }
         }      
     }
 
     public class Category
     {
-        HtmlParser parserInstance;
-        HtmlNode categoryNode;
-        HtmlNode nextCategoryNode;
-        public string Name { get; set; }
-        public List<Dish> dishList = new List<Dish>();
-        public List<HtmlNode> dishNodes = new List<HtmlNode>();
+        private HtmlParser _parserInstance;
+        private HtmlNode _categoryNode;
+        private HtmlNode _nextCategoryNode;
+        public string Name { get; private set; }
+        public List<Dish> DishList { get; private set; } = new List<Dish>();
+        private List<HtmlNode> _dishNodes = new List<HtmlNode>();
 
-        public Category(HtmlParser Parser, HtmlNode categoryNode, HtmlNode nextCategoryNode)
+        public Category(HtmlParser parser, HtmlNode categoryNode, HtmlNode nextCategoryNode)
         {
-            this.parserInstance = Parser;
-            this.categoryNode = categoryNode;
-            this.nextCategoryNode =nextCategoryNode;
+            this._parserInstance = parser;
+            this._categoryNode = categoryNode;
+            this._nextCategoryNode =nextCategoryNode;
             //extract the category string from the node
             this.Name = categoryNode.GetDirectInnerText().Trim();
         }
@@ -94,52 +94,52 @@ namespace OpenMensa_Parser
         public void GenerateDishInstances()
         {
             //get all dishes of the current category as nodes
-            this.dishNodes = this.parserInstance.getNodesByNodeBounds(categoryNode.ParentNode, categoryNode, nextCategoryNode, "class", "row");
+            this._dishNodes = this._parserInstance.GetNodesByNodeBounds(_categoryNode.ParentNode, _categoryNode, _nextCategoryNode, "class", "row");
             //iterate through the dish nodes
-            for (int i = 0; i<dishNodes.Count; i++)
+            for (int i = 0; i<_dishNodes.Count; i++)
             {
-                dishList.Add(new Dish(parserInstance, dishNodes[i]));
+                DishList.Add(new Dish(_parserInstance, _dishNodes[i]));
             }
         }
     }
 
     public class Dish
     {
-        HtmlParser parserInstance;
-        HtmlNode dishNode;
-        public string DishName { get; set; }
-        public string[] Prices { get; set; }
+        private HtmlParser _parserInstance;
+        private HtmlNode _dishNode;
+        public string DishName { get; private set; }
+        public string[] Prices { get; private set; }
 
-        public List<string> specialIngredients = new List<string>();
+        public List<string> SpecialIngredients = new List<string>();
 
-        public Dish(HtmlParser Parser, HtmlNode dishNode)
+        public Dish(HtmlParser parser, HtmlNode dishNode)
         {
             this.Prices = new string[4];
-            this.parserInstance = Parser;
-            this.dishNode = dishNode;
+            this._parserInstance = parser;
+            this._dishNode = dishNode;
 
-            foreach (HtmlNode dishTitle in this.parserInstance.getNodesByAttribute(this.dishNode, "class", "menu_title"))
+            foreach (HtmlNode dishTitle in this._parserInstance.GetNodesByAttribute(this._dishNode, "class", "menu_title"))
             {
                 this.DishName = dishTitle.GetDirectInnerText().Trim();
             }
-            foreach (HtmlNode dishDescription in this.parserInstance.getNodesByAttribute(this.dishNode, "class", "description"))
+            foreach (HtmlNode dishDescription in this._parserInstance.GetNodesByAttribute(this._dishNode, "class", "description"))
             {
                 if (dishDescription.ChildNodes[1].GetDirectInnerText().Trim() != "")
                 {
                     this.DishName += " - " + dishDescription.ChildNodes[1].GetDirectInnerText().Trim();
                 }
-                foreach (HtmlNode dishCharacterisation in this.parserInstance.getNodesByAttribute(dishDescription, "class", "characterisation"))
+                foreach (HtmlNode dishCharacterisation in this._parserInstance.GetNodesByAttribute(dishDescription, "class", "characterisation"))
                 {
-                    foreach (HtmlNode dishIngredient in this.parserInstance.getNodesByAttribute(dishCharacterisation, "title"))
+                    foreach (HtmlNode dishIngredient in this._parserInstance.GetNodesByAttribute(dishCharacterisation, "title"))
                     {
-                        this.specialIngredients.Add(dishIngredient.GetDirectInnerText().Trim());
+                        this.SpecialIngredients.Add(dishIngredient.GetDirectInnerText().Trim());
                     }
                 }
-                foreach (HtmlNode dishPrice in this.parserInstance.getNodesByAttribute(dishDescription, "class", "price"))
+                foreach (HtmlNode dishPrice in this._parserInstance.GetNodesByAttribute(dishDescription, "class", "price"))
                 {
-                    foreach (HtmlNode dishPriceClass in this.parserInstance.getNodesByAttribute(dishPrice, "title"))
+                    foreach (HtmlNode dishPriceClass in this._parserInstance.GetNodesByAttribute(dishPrice, "title"))
                     {
-                        this.specialIngredients.Add(dishPriceClass.GetDirectInnerText().Trim());
+                        this.SpecialIngredients.Add(dishPriceClass.GetDirectInnerText().Trim());
                     }
                 }
             }
