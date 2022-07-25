@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  tuning-8 <tuning_8@gmx.de>
- * @version 1.17
+ * @version 1.18
  *
  * @section LICENSE
  *
@@ -151,8 +151,8 @@ namespace OpenMensa_Parser
         /**
          * @brief   Constructor that instances the 'Html Agility Pack' and loads the website
          *
-         * @params[in]  url     URL to the canteens menu
-         * @params[in]  node    Root node (highest hirarchical level) from where the menu is listed on the website
+         * @param[in]  url     URL to the canteens menu
+         * @param[in]  node    Root node (highest hirarchical level) from where the menu is listed on the website
          */
         public HtmlParser(string url, string node)
         {

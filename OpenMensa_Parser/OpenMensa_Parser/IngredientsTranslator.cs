@@ -1,8 +1,26 @@
+/**
+ * @file
+ * @author  tuning-8 <tuning_8@gmx.de>, nicoschurig
+ * @version 1.6
+ *
+ * @section LICENSE
+ *
+ * Licence information can be found in README.me (https://github.com/tuning-8/swe-sose2022_exam-repository/blob/main/README.md)
+ *
+ * @section DESCRIPTION
+ *
+ * File that includes the dictionary and the method for translating ingredient numbers to human readable short descriptions.
+ * (e.g. '2' -> 'mit Farbstoff', 'WEI' -> 'Weizen')
+ */
+
 using System;
 using System.Text;
 
 namespace OpenMena_Parser
 {
+    /**
+     * @brief   Class includes the translation dictionary and method
+     */
     static class IngredientsTranslator
     {
         private static Dictionary<string, string> IngredientsByStringIndicator = new Dictionary<string, string>() {
@@ -50,6 +68,16 @@ namespace OpenMena_Parser
             {"MAC", "Macadamia"}
         };
 
+        /**
+         * @brief   Method to translate ingredient number to description
+         *
+         * @detail  A method that returns a short description of a specific ingredient
+                    (value of the dictionary) with the ingredient number/short string as
+                    input (key of the dictionary)
+         *
+         * @param[in]   indicatorString     Ingredient abbraviation (key)
+         * @return      Full description of the ingredient (value)
+         */
         public static string TranslateIngredientIndicator(string indicatorString)
         {
             return  IngredientsByStringIndicator[indicatorString];
