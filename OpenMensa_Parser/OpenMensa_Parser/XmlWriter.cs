@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  nicoschurig <nico-schurig@gmx.de>
- * @version 1.04
+ * @version 1.05
  *
  * @section LICENSE
  *
@@ -94,7 +94,7 @@ namespace OpenMensa_Parser
         }
 
         /**
-         * @brief   Method that writes the prices.
+         * @brief   Method that writes the prices into the .xml file.
          *
          * @details A method that writes the prices of the given dish for each guest. There are multiple guest-roles
          *          (student, employee, pupil, others) and a matching amount of prices provided.
@@ -114,6 +114,15 @@ namespace OpenMensa_Parser
             }
         }
 
+        /**
+         * @brief   Method that writes all the menu information into the .xml file.
+         *
+         * @details A method that writes the information for each dish in each category on each day. It is the writer of the
+         *          actual menu, that can be seen on the OpenMensa website.
+         *
+         * @param[in]   xmlWriter       Instance of XmlTextWriter class 
+         *
+         */
         private void WriteMenuInformation(XmlTextWriter xmlWriter)
         {
             foreach(Weekday day in MenuInstance.WeekdayList)
