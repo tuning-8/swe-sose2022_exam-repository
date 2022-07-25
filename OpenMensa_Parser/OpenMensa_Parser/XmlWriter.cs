@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  nicoschurig <nico-schurig@gmx.de>
- * @version 1.03
+ * @version 1.04
  *
  * @section LICENSE
  *
@@ -93,6 +93,16 @@ namespace OpenMensa_Parser
             xmlWriter.WriteStartElement("canteen");
         }
 
+        /**
+         * @brief   Method that writes the prices.
+         *
+         * @details A method that writes the prices of the given dish for each guest. There are multiple guest-roles
+         *          (student, employee, pupil, others) and a matching amount of prices provided.
+         *
+         * @param[in]   dish            Instance of Dish class containing the needed price information.
+         * @param[in]   xmlWriter       Instance of XmlTextWriter class   
+         *
+         */
         private void WritePriceInformation(Dish dish, XmlTextWriter xmlWriter)
         {
             for(int i = 0; i < dish.Prices.Length; i++)
