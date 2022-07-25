@@ -33,7 +33,7 @@ namespace OpenMena_Parser
             {"31", "Lupine"},
             {"35", "mit Azofarbstoff"},
             {"43", "mit kakaohaltiger Fettglasur"},
-            {"171", "ungeeignet für Vegetarier"}
+            {"171", "ungeeignet für Vegetarier"},
             {"WEI", "Weizen"},
             {"ROG", "Roggen"},
             {"GER", "Gerste"},
