@@ -1,7 +1,7 @@
 ﻿/**
  * @file
  * @author  tuning-8 <tuning_8@gmx.de>, nicoschurig
- * @version 1.7
+ * @version 1.8
  *
  * @section LICENSE
  *
@@ -18,7 +18,7 @@ using HtmlAgilityPack;
 namespace OpenMensa_Parser
 {
     /**
-     * @brief   Class
+     * @brief   Class stores a List of 'Weekday' class instances
      */
     public class Menu
     {
@@ -30,19 +30,17 @@ namespace OpenMensa_Parser
          * @brief   Constructor that takes over a instance of a HTML parser
          *
          * @param[in]   parser  instance of a HtmlParser class
-         *
          */
         public Menu (HtmlParser parser)
         {
             this._parserInstance = parser;
         }
 
-        //function to parse the dates -> weekdayNodes and create instances of Weekday -> weekdayList
         /**
-         * @brief   Method
+         * @brief   Method to parse the dates and create instances of Weekday class
          *
-         * @details A method that
-         *
+         * @details A method that parses the nodes for each date that has a menu available. For each node
+         *          a new instance of the Weekday class is stored in the WeekdayList.
          */
         public void GenrateWeekdayInstances()
         {
@@ -62,7 +60,7 @@ namespace OpenMensa_Parser
     }
 
     /**
-     * @brief   Class
+     * @brief   Class stores a List of 'Category' class instances
      */
     public class Weekday
     {
@@ -77,7 +75,6 @@ namespace OpenMensa_Parser
          *
          * @param[in]   parser      instance of a HtmlParser class
          * @param[in]   weekdayNode HTML node that contains the menu for a weekday (structured in categories)
-         *
          */
         public Weekday(HtmlParser parser, HtmlNode weekdayNode)
         {
@@ -87,13 +84,11 @@ namespace OpenMensa_Parser
             this.Date = weekdayNode.GetAttributeValue("date", "");
         }
 
-        //function to parse the categories -> categoryNodes and create instances of Category -> categoryList
-        //function to parse the dates -> weekdayNodes and create instances of Weekday -> weekdayList
         /**
-         * @brief   Method
+         * @brief   Method to parse the categories and create instances of Category
          *
-         * @details A method that
-         *
+         * @details A method that parses the nodes for each category that one day contains. For each node
+         *          a new instance of the Category class is stored in the CategoryList.
          */
         public void GenerateCategoryInstances()
         {
@@ -119,7 +114,7 @@ namespace OpenMensa_Parser
     }
 
     /**
-     * @brief   Class
+     * @brief   Class stores a List of 'Dish' class instances
      */
     public class Category
     {
@@ -147,13 +142,11 @@ namespace OpenMensa_Parser
             this.Name = categoryNode.GetDirectInnerText().Trim();
         }
 
-        //function to parse the dishes -> dishNodes and create instances of Dish -> dishList
-        //function to parse the dates -> weekdayNodes and create instances of Weekday -> weekdayList
         /**
-         * @brief   Method
+         * @brief   Method to parse the dishes and create instances of Dish
          *
-         * @details A method that
-         *
+         * @details A method that parses the nodes for each dish that one category contains. For each node
+         *          a new instance of the Dish class is stored in the DishList.
          */
         public void GenerateDishInstances()
         {
@@ -168,7 +161,7 @@ namespace OpenMensa_Parser
     }
 
     /**
-     * @brief   Class
+     * @brief   Class stores information about a dish
      */
     public class Dish
     {
