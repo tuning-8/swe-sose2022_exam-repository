@@ -59,7 +59,7 @@ namespace OpenMensa_Parser
 
         private void WritePriceInformation(Dish dish, XmlTextWriter xmlWriter)
         {
-            for(int i = 0; i < dish.Prices.Length(); i++)
+            for(int i = 0; i < dish.Prices.Length; i++)
             {
                 xmlWriter.WriteStartElement("price");
                 xmlWriter.WriteAttributeString("role", roleNames[i]);
@@ -70,7 +70,7 @@ namespace OpenMensa_Parser
 
         private void WriteMenuInformation(XmlTextWriter xmlWriter)
         {
-            foreach(Weekday day in Menu.WeekdayList)
+            foreach(Weekday day in MenuInstance.WeekdayList)
             {
                 DateTime dateTime = DateTime.Parse(day.Date);
 
@@ -94,7 +94,7 @@ namespace OpenMensa_Parser
 
                             foreach(string specialIngretient in dish.SpecialIngredients)
                             { 
-                                xmlWriter.WriteString("-" + IngredientsTranslator.TranslateIngredientIndicator(specialIngretient) + " ");   
+                                xmlWriter.WriteString("-" + OpenMena_Parser.IngredientsTranslator.TranslateIngredientIndicator(specialIngretient) + " ");   
                             }
 
                             xmlWriter.WriteEndElement();
