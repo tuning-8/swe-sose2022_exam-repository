@@ -1,7 +1,7 @@
 /**
  * @file
  * @author  nicoschurig <nico-schurig@gmx.de>
- * @version 1.09
+ * @version 1.10
  *
  * @section LICENSE
  *
@@ -36,7 +36,7 @@ namespace OpenMensa_Parser
 
         private int _priceCounter = 0;
 
-        /**
+        /*
          * @brief   Array of customer roles
          *
          * @details This Array contains the roles of potential customers of the canteen. Currently the TU Freiberg canteen differentiates
@@ -45,7 +45,7 @@ namespace OpenMensa_Parser
          */
         private string[] roleNames = new string[] {"student", "employee", "other", "pupil"};
 
-        /**
+        /*
          * @brief   Array of characters removed from the price
          *
          * @details This Array contains the characters that should be removed from the price string. Open Mensa requires the following
@@ -60,14 +60,14 @@ namespace OpenMensa_Parser
         /**
          * @brief   Constructor that allocates a value to each field.
          *
-         * @params[in]  fileName            Name of the generated .xml file
-         * @params[in]  parserVersion       Current version of our OpenMensa parser
-         * @params[in]  openMensaVersion    Current version of the OpenMensa project
-         * @params[in]  feedInformation     Provides an url to the current OpenMensa Feed
-         * @params[in]  schemaInstance      Provides information about the xml schema instance
-         * @params[in]  schemaLocation      Download of the OpenMensa xml schema
-         * @params[in]  menu                Instance of the Menu class, loaded with menu infomation
-          *@params[in]  xmlFilePath         File path where the .xml file is saved at 
+         * @param[in]  fileName            Name of the generated .xml file
+         * @param[in]  parserVersion       Current version of our OpenMensa parser
+         * @param[in]  openMensaVersion    Current version of the OpenMensa project
+         * @param[in]  feedInformation     Provides an url to the current OpenMensa Feed
+         * @param[in]  schemaInstance      Provides information about the xml schema instance
+         * @param[in]  schemaLocation      Download of the OpenMensa xml schema
+         * @param[in]  menu                Instance of the Menu class, loaded with menu infomation
+          *@param[in]  xmlFilePath         File path where the .xml file is saved at 
          */
         public XmlWriter(string fileName, string parserVersion,string openMensaVersion, string feedInformation, string schemaInstance, string schemaLocation, Menu menu, string xmlFilePath)
         {
@@ -90,7 +90,7 @@ namespace OpenMensa_Parser
          */
         public void WriteXmlFile()
         {
-            /**
+            /*
             * @brief   Instance of XmlTextWriter class
             *
             * @details A new instance of the XmlTextWriterClass is created with the given parameters.
@@ -109,8 +109,15 @@ namespace OpenMensa_Parser
         /**
          * @brief   Method that writes the declaration into the .xml file.
          *
-         * @details A method that is called by the WriteXmlFile() method. It writes the deklaration into the .xml file, which is the initiation
+         * @details A method that is called by the WriteXmlFile() method. It writes the declaration into the .xml file, which is the initiation
          *          of the .xml file.
+         *
+         * @note    The declaration contains:
+         *              - an identification mark that lables the the Document as XML
+         *              - the version of the used xml-standard (version="1.0")
+         *              - the encoding format (UTF8) required by OpenMensa
+         *              - some information about the used OpenMensa feed, a schema instance and a schema location
+         *              - the version of our parser
          *
          * @param[in]   xmlWriter      Instance of XmlTextWriter class
          *
