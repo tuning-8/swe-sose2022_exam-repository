@@ -193,7 +193,7 @@ namespace OpenMensa_Parser
 
                             foreach(string specialIngretient in dish.SpecialIngredients)
                             { 
-                                xmlWriter.WriteString("-" + OpenMena_Parser.IngredientsTranslator.TranslateIngredientIndicator(specialIngretient) + " ");   
+                                xmlWriter.WriteString("-" + IngredientsTranslator.TranslateIngredientIndicator(specialIngretient) + " ");   
                             }
 
                             xmlWriter.WriteEndElement();

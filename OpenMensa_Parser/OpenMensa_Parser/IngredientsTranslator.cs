@@ -16,7 +16,7 @@
 using System;
 using System.Text;
 
-namespace OpenMena_Parser
+namespace OpenMensa_Parser
 {
     /**
      * @brief   Class includes the translation dictionary and method
