@@ -1,3 +1,17 @@
+/**
+ * @file
+ * @author  nicoschurig <nico-schurig@gmx.de>
+ * @version 1.10
+ *
+ * @section LICENSE
+ *
+ * Licence information can be found in README.me (https://github.com/tuning-8/swe-sose2022_exam-repository/blob/main/README.md)
+ *
+ * @section DESCRIPTION
+ *
+ * File that includes the 'XmlWriter' class with all methods needed to write information into a .xml file.
+ */
+
 using System;
 using System.Text;
 using System.Xml;
@@ -5,6 +19,11 @@ using System.Globalization;
 
 namespace OpenMensa_Parser
 {
+    /**
+     * @brief Class that contains methods to write provided information into a .xml file.
+     *
+     *
+     */
     public class XmlWriter
     {
         private readonly string _fileName;
@@ -17,11 +36,39 @@ namespace OpenMensa_Parser
 
         private int _priceCounter = 0;
 
+        /*
+         * @brief   Array of customer roles
+         *
+         * @details This Array contains the roles of potential customers of the canteen. Currently the TU Freiberg canteen differentiates
+         *          between students, employee, other and pupil. Each role gets a different price allocated.
+         * 
+         */
         private string[] roleNames = new string[] {"student", "employee", "other", "pupil"};
+
+        /*
+         * @brief   Array of characters removed from the price
+         *
+         * @details This Array contains the characters that should be removed from the price string. Open Mensa requires the following
+         *          price format: 0.00. The data provided by the TU Freiberg canteen website has the format: 0,00 €. The .TrimEnd() Method
+         *          is called (after the .Replace() method) with the removedCharacters parameter. That results in the required price format.
+         * 
+         */
         private char[] removedCharacters = new char[] {'€', ' '};
 
         public Menu MenuInstance { get; private set; }
 
+        /**
+         * @brief   Constructor that allocates a value to each field.
+         *
+         * @param[in]  fileName            Name of the generated .xml file
+         * @param[in]  parserVersion       Current version of our OpenMensa parser
+         * @param[in]  openMensaVersion    Current version of the OpenMensa project
+         * @param[in]  feedInformation     Provides an url to the current OpenMensa Feed
+         * @param[in]  schemaInstance      Provides information about the xml schema instance
+         * @param[in]  schemaLocation      Download of the OpenMensa xml schema
+         * @param[in]  menu                Instance of the Menu class, loaded with menu infomation
+          *@param[in]  xmlFilePath         File path where the .xml file is saved at 
+         */
         public XmlWriter(string fileName, string parserVersion,string openMensaVersion, string feedInformation, string schemaInstance, string schemaLocation, Menu menu, string xmlFilePath)
         {
             _fileName = fileName;
@@ -33,8 +80,25 @@ namespace OpenMensa_Parser
             this.MenuInstance = menu;
         }
         
+        /**
+         * @brief   Method that writes the whole .xml file.
+         *
+         * @details A method, that generates an Instance of XmlTextWriter. It then calls the WriteOpenMensaStandardInformation method
+         *          and the WriteMenuInformation method. WriteXmlFile() method is public , so it can be accessed for each potential instance of the
+         *          XmlWriter class. After calling it, the whole .xml file will be (over-)written.
+         *
+         */
         public void WriteXmlFile()
         {
+            /*
+            * @brief   Instance of XmlTextWriter class
+            *
+            * @details A new instance of the XmlTextWriterClass is created with the given parameters.
+            *
+            * @param[in]    _xmlFilePath + fileName         Combines the name of the .xml file with its path for saving
+            * @param[in]    System.Text.Encoding.UTF8       Defines the encoding format (UTF8) required by OpenMensa
+            *
+            */
             XmlTextWriter xmlWriter = new XmlTextWriter(_xmlFilePath + _fileName, System.Text.Encoding.UTF8);
             xmlWriter.Formatting = Formatting.Indented;
 
@@ -42,6 +106,22 @@ namespace OpenMensa_Parser
             WriteMenuInformation(xmlWriter);
         }
 
+        /**
+         * @brief   Method that writes the declaration into the .xml file.
+         *
+         * @details A method that is called by the WriteXmlFile() method. It writes the declaration into the .xml file, which is the initiation
+         *          of the .xml file.
+         *
+         * @note    The declaration contains:
+         *              - an identification mark that lables the the Document as XML
+         *              - the version of the used xml-standard (version="1.0")
+         *              - the encoding format (UTF8) required by OpenMensa
+         *              - some information about the used OpenMensa feed, a schema instance and a schema location
+         *              - the version of our parser
+         *
+         * @param[in]   xmlWriter      Instance of XmlTextWriter class
+         *
+         */
         private void WriteOpenMensaStandardInformation(XmlTextWriter xmlWriter)
         {            
             //Writing process:
@@ -57,6 +137,16 @@ namespace OpenMensa_Parser
             xmlWriter.WriteStartElement("canteen");
         }
 
+        /**
+         * @brief   Method that writes the prices into the .xml file.
+         *
+         * @details A method that writes the prices of the given dish for each guest. There are multiple guest-roles
+         *          (student, employee, pupil, others) and a matching amount of prices provided.
+         *
+         * @param[in]   dish            Instance of Dish class containing the needed price information.
+         * @param[in]   xmlWriter       Instance of XmlTextWriter class   
+         *
+         */
         private void WritePriceInformation(Dish dish, XmlTextWriter xmlWriter)
         {
             for(int i = 0; i < dish.Prices.Length; i++)
@@ -68,6 +158,15 @@ namespace OpenMensa_Parser
             }
         }
 
+        /**
+         * @brief   Method that writes all the menu information into the .xml file.
+         *
+         * @details A method that writes the information for each dish in each category on each day. It is the writer of the
+         *          actual menu, that can be seen on the OpenMensa website.
+         *
+         * @param[in]   xmlWriter       Instance of XmlTextWriter class 
+         *
+         */
         private void WriteMenuInformation(XmlTextWriter xmlWriter)
         {
             foreach(Weekday day in MenuInstance.WeekdayList)
