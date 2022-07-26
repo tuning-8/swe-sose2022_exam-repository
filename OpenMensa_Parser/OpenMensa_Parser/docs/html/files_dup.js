@@ -4,7 +4,7 @@ var files_dup =
       [ "HtmlParser", "classOpenMensa__Parser_1_1HtmlParser.html", "classOpenMensa__Parser_1_1HtmlParser" ]
     ] ],
     [ "IngredientsTranslator.cs", "IngredientsTranslator_8cs.html", [
-      [ "IngredientsTranslator", "classOpenMena__Parser_1_1IngredientsTranslator.html", "classOpenMena__Parser_1_1IngredientsTranslator" ]
+      [ "IngredientsTranslator", "classOpenMensa__Parser_1_1IngredientsTranslator.html", "classOpenMensa__Parser_1_1IngredientsTranslator" ]
     ] ],
     [ "Menu.cs", "Menu_8cs.html", [
       [ "Menu", "classOpenMensa__Parser_1_1Menu.html", "classOpenMensa__Parser_1_1Menu" ],

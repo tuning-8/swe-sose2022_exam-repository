@@ -3,6 +3,7 @@ var namespaceOpenMensa__Parser =
     [ "Category", "classOpenMensa__Parser_1_1Category.html", "classOpenMensa__Parser_1_1Category" ],
     [ "Dish", "classOpenMensa__Parser_1_1Dish.html", "classOpenMensa__Parser_1_1Dish" ],
     [ "HtmlParser", "classOpenMensa__Parser_1_1HtmlParser.html", "classOpenMensa__Parser_1_1HtmlParser" ],
+    [ "IngredientsTranslator", "classOpenMensa__Parser_1_1IngredientsTranslator.html", "classOpenMensa__Parser_1_1IngredientsTranslator" ],
     [ "Menu", "classOpenMensa__Parser_1_1Menu.html", "classOpenMensa__Parser_1_1Menu" ],
     [ "Program", "classOpenMensa__Parser_1_1Program.html", "classOpenMensa__Parser_1_1Program" ],
     [ "TxtReader", "classOpenMensa__Parser_1_1TxtReader.html", "classOpenMensa__Parser_1_1TxtReader" ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['translateingredientindicator_49',['TranslateIngredientIndicator',['../classOpenMena__Parser_1_1IngredientsTranslator.html#ac04c8f0254f8526a1572d36746a844ad',1,'OpenMena_Parser::IngredientsTranslator']]]
+  ['translateingredientindicator_47',['TranslateIngredientIndicator',['../classOpenMensa__Parser_1_1IngredientsTranslator.html#ac145b1b4163e119cd2dc7c8881ad3cc5',1,'OpenMensa_Parser::IngredientsTranslator']]]
 ];
