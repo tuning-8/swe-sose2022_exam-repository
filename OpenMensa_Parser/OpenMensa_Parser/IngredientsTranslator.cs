@@ -23,6 +23,16 @@ namespace OpenMena_Parser
      */
     static class IngredientsTranslator
     {
+        /**
+         * @brief   Dictionary of indicators and their matching string
+         *
+         * @details This dictionary contains all the indicator strings and their translations, that are provided in the following
+         *          PDF: (https://www.studentenwerk-freiberg.de/fileadmin/essen-trinken/2019-10-22_Kennteichnungshinweise.pdf).
+         *
+         * @note    The HtmlParser returns all indicators in datatype string, so we don't have to differentiate between int and
+         *          string and are able to store all indicators in one list<string> specialIngredients in Dish class.
+         * 
+         */
         private static Dictionary<string, string> IngredientsByStringIndicator = new Dictionary<string, string>() {
             {"1","mit Konservierungsstoffen"},
             {"2", "mit Farbstoff"},
