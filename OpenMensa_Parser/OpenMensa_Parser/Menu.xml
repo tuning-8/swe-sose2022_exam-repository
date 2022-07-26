@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<openmensa version="2.1" xmlns="http://openmensa.org/open-mensa-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openmensa.org/open-mensa-v2 http://openmensa.org/open-mensa-v2.xsd">
+  <version>v1.1</version>
+  <canteen>
+    <day date="2022-07-25">
+      <category name="Vegetarisch">
+        <meal>
+          <name>ANGEBOT-Omelett mit Champignonfüllung - Kartoffelpüree</name>
+          <note>-mit Antioxidationsmittel -glutenhaltig -eihaltig -Milch/Milchzucker </note>
+          <price role="student">2.15</price>
+          <price role="employee">3.60</price>
+          <price role="other">4.85</price>
+          <price role="pupil">2.65</price>
+        </meal>
+        <meal>
+          <name>Schwäbische Käsespätzle mit Gemüse - Tomatensoße</name>
+          <note>-glutenhaltig -eihaltig -Milch/Milchzucker -Sellerie </note>
+          <price role="student">2.15</price>
+          <price role="employee">3.60</price>
+          <price role="other">4.85</price>
+          <price role="pupil">2.65</price>
+        </meal>
+      </category>
+      <category name="Campusteller">
+        <meal>
+          <name>Rostbratwurst - Zwiebelsoße Bratkartoffeln Sauerkraut</name>
+          <note>-mit Farbstoff -mit Antioxidationsmittel -mit Phosphat -glutenhaltig -Senf </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Wok &amp;amp; Grill">
+        <meal>
+          <name>Rinderhacksteak BBQ mit Bacon - Bohnengemüse Kartoffelspalten</name>
+          <note>-mit Konservierungsstoffen -mit Antioxidationsmittel -mit Süßungsmitteln -Milch/Milchzucker -Sellerie -Senf </note>
+          <price role="student">3.90</price>
+          <price role="employee">5.35</price>
+          <price role="other">6.60</price>
+          <price role="pupil">4.40</price>
+        </meal>
+        <meal>
+          <name>ANGEBOT-Lasagne mit Tomate und Hackfleisch</name>
+          <note>-mit Farbstoff -mit Süßungsmitteln -glutenhaltig -eihaltig -Soja -Milch/Milchzucker </note>
+          <price role="student">3.00</price>
+          <price role="employee">4.45</price>
+          <price role="other">5.70</price>
+          <price role="pupil">3.50</price>
+        </meal>
+      </category>
+      <category name="Pizza &amp;amp; mehr">
+        <meal>
+          <name>Pizza Salami</name>
+          <note>-mit Konservierungsstoffen -mit Farbstoff -mit Antioxidationsmittel -glutenhaltig -Milch/Milchzucker -Senf </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+        <meal>
+          <name>Nudelauflauf mit Gemüse</name>
+          <note>-glutenhaltig -Milch/Milchzucker -Sellerie </note>
+          <price role="student">2.15</price>
+          <price role="employee">3.60</price>
+          <price role="other">4.85</price>
+          <price role="pupil">2.65</price>
+        </meal>
+        <meal>
+          <name>Pizza Hot Dog</name>
+          <note>-mit Konservierungsstoffen -mit Farbstoff -mit Antioxidationsmittel -mit Phosphat -mit Süßungsmitteln -mit Geschmacksverstärker -glutenhaltig -Milch/Milchzucker -Senf </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+        <meal>
+          <name>Pizza Schinken</name>
+          <note>-mit Konservierungsstoffen -mit Antioxidationsmittel -mit Phosphat -glutenhaltig -Milch/Milchzucker -Senf </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+        <meal>
+          <name>Reisauflauf mit Gemüse und Hähnchenbrust</name>
+          <note>-mit Konservierungsstoffen -mit Farbstoff -glutenhaltig -Erdnüsse -Soja -Milch/Milchzucker </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Hinweis">
+        <meal>
+          <name>Sie erhalten unser Angebot ab dieser Woche an den Ausgaben im großen Speisesaal.</name>
+          <price role="student">-</price>
+          <price role="employee">-</price>
+          <price role="other">-</price>
+          <price role="pupil">-</price>
+        </meal>
+      </category>
+    </day>
+    <day date="2022-07-26">
+      <category name="Vegetarisch">
+        <meal>
+          <name>Falafelburger mit Curry Dip - Pommes frites Mischsalat mit Dressing</name>
+          <note>-mit Antioxidationsmittel -glutenhaltig -eihaltig -Soja -Milch/Milchzucker -Senf -Sesamsamen </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Campusteller">
+        <meal>
+          <name>ANGEBOT-Rostbratwurst - Zwiebelsoße Bratkartoffeln Sauerkraut</name>
+          <note>-mit Farbstoff -mit Antioxidationsmittel -mit Phosphat -glutenhaltig -Senf </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+        <meal>
+          <name>Schweinerückensteak - Letscho Spätzle</name>
+          <note>-mit Farbstoff -mit Süßungsmitteln -glutenhaltig -eihaltig -Soja </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Wok &amp;amp; Grill">
+        <meal>
+          <name>Wok mit Rindfleischstreifen und Gemüse - Mie- Nudeln oder Basmatireis</name>
+          <note>-mit Konservierungsstoffen -glutenhaltig -Soja </note>
+          <price role="student">3.90</price>
+          <price role="employee">5.35</price>
+          <price role="other">6.60</price>
+          <price role="pupil">4.40</price>
+        </meal>
+        <meal>
+          <name>ANGEBOT-Rinderhacksteak BBQ mit Bacon - Bohnengemüse Kartoffelspalten</name>
+          <note>-mit Konservierungsstoffen -mit Antioxidationsmittel -mit Süßungsmitteln -Milch/Milchzucker -Sellerie -Senf </note>
+          <price role="student">3.90</price>
+          <price role="employee">5.35</price>
+          <price role="other">6.60</price>
+          <price role="pupil">4.40</price>
+        </meal>
+      </category>
+      <category name="Pizza &amp;amp; mehr">
+        <meal>
+          <name>Reisauflauf mit Gemüse</name>
+          <note>-mit Konservierungsstoffen -mit Farbstoff -glutenhaltig -Erdnüsse -Soja -Milch/Milchzucker </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+        <meal>
+          <name>Schwäbische Käsespätzle mit Gemüse</name>
+          <note>-glutenhaltig -eihaltig -Milch/Milchzucker -Sellerie </note>
+          <price role="student">2.15</price>
+          <price role="employee">3.60</price>
+          <price role="other">4.85</price>
+          <price role="pupil">2.65</price>
+        </meal>
+        <meal>
+          <name>Pizza Salami</name>
+          <note>-mit Konservierungsstoffen -mit Farbstoff -mit Antioxidationsmittel -glutenhaltig -Milch/Milchzucker -Senf </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+        <meal>
+          <name>Pizza Hot Dog</name>
+          <note>-mit Konservierungsstoffen -mit Farbstoff -mit Antioxidationsmittel -mit Phosphat -mit Süßungsmitteln -mit Geschmacksverstärker -glutenhaltig -Milch/Milchzucker -Senf </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+        <meal>
+          <name>Pizza Schinken</name>
+          <note>-mit Konservierungsstoffen -mit Antioxidationsmittel -mit Phosphat -glutenhaltig -Milch/Milchzucker -Senf </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Hinweis">
+        <meal>
+          <name>Sie erhalten unser Angebot ab dieser Woche an den Ausgaben im großen Speisesaal.</name>
+          <price role="student">-</price>
+          <price role="employee">-</price>
+          <price role="other">-</price>
+          <price role="pupil">-</price>
+        </meal>
+      </category>
+    </day>
+    <day date="2022-07-27">
+      <category name="mensaInternational">
+        <meal>
+          <name>Vegetarische Frühlingsrolle - Asiatisches Gemüse Duftreis Mie-Nudeln</name>
+          <note>-mit Konservierungsstoffen -glutenhaltig -Soja -Sellerie </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Vegetarisch">
+        <meal>
+          <name>Feurige Pilzpfanne mit Paprika und Mandeln, Couscous, Limettenjoghurt</name>
+          <note>-glutenhaltig -Milch/Milchzucker -Schalenfrüchte/Nüsse </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Campusteller">
+        <meal>
+          <name>Hühnerfrikassee - Buttererbsengemüse Käuterreis</name>
+          <note>-mit Farbstoff -glutenhaltig -Milch/Milchzucker </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Wok &amp;amp; Grill">
+        <meal>
+          <name>Schweineschnitzel Wiener Art - Bratensauce Herzoginkartoffeln Brokkoligemüse</name>
+          <note>-glutenhaltig -eihaltig -Milch/Milchzucker </note>
+          <price role="student">3.00</price>
+          <price role="employee">4.45</price>
+          <price role="other">5.70</price>
+          <price role="pupil">3.50</price>
+        </meal>
+      </category>
+    </day>
+    <day date="2022-07-28">
+      <category name="mensaInternational">
+        <meal>
+          <name>Hirtenkäse aus dem Ofen - oder Tofu aus dem Ofen Ratatouille Gnocchi</name>
+          <note>-eihaltig -Soja -Milch/Milchzucker </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Vegetarisch">
+        <meal>
+          <name>Champignon in Backteig - Aioli Dip, Bratkartoffeln Eisbergsalat</name>
+          <note>-mit Süßungsmitteln -glutenhaltig -eihaltig -Milch/Milchzucker -Senf </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Campusteller">
+        <meal>
+          <name>Köttbullar, Rahmsoße und Preiselbeeren - Kartoffelstampf</name>
+          <note>-Milch/Milchzucker </note>
+          <price role="student">3.00</price>
+          <price role="employee">4.45</price>
+          <price role="other">5.70</price>
+          <price role="pupil">3.50</price>
+        </meal>
+      </category>
+      <category name="Wok &amp;amp; Grill">
+        <meal>
+          <name>Chicken-Burger - Rohkostsalat Pommes frites</name>
+          <note>-mit Süßungsmitteln -glutenhaltig -eihaltig -Sellerie -Senf -Sesamsamen </note>
+          <price role="student">3.00</price>
+          <price role="employee">4.45</price>
+          <price role="other">5.70</price>
+          <price role="pupil">3.50</price>
+        </meal>
+      </category>
+    </day>
+    <day date="2022-07-29">
+      <category name="Vegetarisch">
+        <meal>
+          <name>Vegetarische Maultaschen - Zwiebelschmelze</name>
+          <note>-glutenhaltig -eihaltig -Milch/Milchzucker -Sellerie </note>
+          <price role="student">1.85</price>
+          <price role="employee">3.30</price>
+          <price role="other">4.55</price>
+          <price role="pupil">2.35</price>
+        </meal>
+      </category>
+      <category name="Campusteller">
+        <meal>
+          <name>Seelachsfilet, paniert - Remouladensoße Bratkartoffeln Blattsalat</name>
+          <note>-mit Antioxidationsmittel -mit Süßungsmitteln -glutenhaltig -eihaltig -Milch/Milchzucker -Senf -Fisch (Allergen) </note>
+          <price role="student">2.60</price>
+          <price role="employee">4.05</price>
+          <price role="other">5.30</price>
+          <price role="pupil">3.10</price>
+        </meal>
+      </category>
+      <category name="Wok &amp;amp; Grill">
+        <meal>
+          <name>Kassler-Schupfnudelpfanne - Zwiebelsoße Sauerkraut</name>
+          <note>-mit Konservierungsstoffen -mit Farbstoff -mit Antioxidationsmittel -mit Phosphat -glutenhaltig -eihaltig </note>
+          <price role="student">3.00</price>
+          <price role="employee">4.45</price>
+          <price role="other">5.70</price>
+          <price role="pupil">3.50</price>
+        </meal>
+      </category>
+    </day>
+  </canteen>
+</openmensa>
