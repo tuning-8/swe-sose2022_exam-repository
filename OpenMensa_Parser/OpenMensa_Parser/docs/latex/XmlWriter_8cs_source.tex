@@ -1,0 +1,121 @@
+\hypertarget{XmlWriter_8cs_source}{}\doxysection{/mnt/network\+\_\+drives/\+TUBAF-\/\+ZFS1-\/\+SMB/02\+\_\+\+SS\+\_\+22/\+Softwareentwicklung/\+Exam\+\_\+\+Project/git\+\_\+repo/swe-\/sose2022\+\_\+exam-\/repository/\+Open\+Mensa\+\_\+\+Parser/\+Open\+Mensa\+\_\+\+Parser/\+Xml\+Writer.cs}
+\mbox{\hyperlink{XmlWriter_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00015}00015 \textcolor{keyword}{using} System;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00016}00016 \textcolor{keyword}{using} System.Text;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00017}00017 \textcolor{keyword}{using} System.Xml;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00018}00018 \textcolor{keyword}{using} System.Globalization;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00020}00020 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceOpenMensa__Parser}{OpenMensa\_Parser}}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00021}00021 \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00027}\mbox{\hyperlink{classOpenMensa__Parser_1_1XmlWriter}{00027}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classOpenMensa__Parser_1_1XmlWriter}{XmlWriter}}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00028}00028     \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00029}00029         \textcolor{keyword}{private} readonly \textcolor{keywordtype}{string} \_fileName;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00030}00030         \textcolor{keyword}{private} readonly \textcolor{keywordtype}{string} \_parserVersion;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00031}00031         \textcolor{keyword}{private} readonly \textcolor{keywordtype}{string} \_openMensaVersion;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00032}00032         \textcolor{keyword}{private} readonly \textcolor{keywordtype}{string} \_feedInformation;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00033}00033         \textcolor{keyword}{private} readonly \textcolor{keywordtype}{string} \_schemaInstance;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00034}00034         \textcolor{keyword}{private} readonly \textcolor{keywordtype}{string} \_schemaLocation;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00035}00035         \textcolor{keyword}{private} readonly \textcolor{keywordtype}{string} \_xmlFilePath;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00037}00037         \textcolor{keyword}{private} \textcolor{keywordtype}{int} \_priceCounter = 0;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00046}00046         \textcolor{keyword}{private} \textcolor{keywordtype}{string}[] roleNames = \textcolor{keyword}{new} \textcolor{keywordtype}{string}[] \{\textcolor{stringliteral}{"{}student"{}}, \textcolor{stringliteral}{"{}employee"{}}, \textcolor{stringliteral}{"{}other"{}}, \textcolor{stringliteral}{"{}pupil"{}}\};}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00056}00056         \textcolor{keyword}{private} \textcolor{keywordtype}{char}[] removedCharacters = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[] \{\textcolor{stringliteral}{'€'}, \textcolor{charliteral}{' '}\};}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00058}00058         \textcolor{keyword}{public} \mbox{\hyperlink{classOpenMensa__Parser_1_1Menu}{Menu}} MenuInstance \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00072}\mbox{\hyperlink{classOpenMensa__Parser_1_1XmlWriter_ad0f80adb782dfc5c33b67cc5230cdea2}{00072}}         \textcolor{keyword}{public} \mbox{\hyperlink{classOpenMensa__Parser_1_1XmlWriter_ad0f80adb782dfc5c33b67cc5230cdea2}{XmlWriter}}(\textcolor{keywordtype}{string} fileName, \textcolor{keywordtype}{string} parserVersion,\textcolor{keywordtype}{string} openMensaVersion, \textcolor{keywordtype}{string} feedInformation, \textcolor{keywordtype}{string} schemaInstance, \textcolor{keywordtype}{string} schemaLocation, \mbox{\hyperlink{classOpenMensa__Parser_1_1Menu}{Menu}} menu, \textcolor{keywordtype}{string} xmlFilePath)}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00073}00073         \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00074}00074             \_fileName = fileName;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00075}00075             \_parserVersion = parserVersion;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00076}00076             \_openMensaVersion = openMensaVersion;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00077}00077             \_feedInformation = feedInformation;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00078}00078             \_schemaInstance = schemaInstance;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00079}00079             \_schemaLocation = schemaLocation;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00080}00080             this.MenuInstance = menu;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00081}00081         \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00082}00082         }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00091}\mbox{\hyperlink{classOpenMensa__Parser_1_1XmlWriter_af77a4dc949a755355a6b29ece8f917d4}{00091}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classOpenMensa__Parser_1_1XmlWriter_af77a4dc949a755355a6b29ece8f917d4}{WriteXmlFile}}()}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00092}00092         \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00102}00102             XmlTextWriter xmlWriter = \textcolor{keyword}{new} XmlTextWriter(\_xmlFilePath + \_fileName, System.Text.Encoding.UTF8);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00103}00103             xmlWriter.Formatting = Formatting.Indented;}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00105}00105             WriteOpenMensaStandardInformation(xmlWriter);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00106}00106             WriteMenuInformation(xmlWriter);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00107}00107         \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00118}00118         \textcolor{keyword}{private} \textcolor{keywordtype}{void} WriteOpenMensaStandardInformation(XmlTextWriter xmlWriter)}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00119}00119         \{            }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00120}00120             \textcolor{comment}{//Writing process:}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00121}00121             xmlWriter.WriteStartDocument();                 \textcolor{comment}{//writes: <?xml version="{}1.0"{} encoding="{}utf-\/8"{}?>}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00122}00122             xmlWriter.WriteStartElement(\textcolor{stringliteral}{"{}openmensa"{}});}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00123}00123             xmlWriter.WriteAttributeString(\textcolor{stringliteral}{"{}version"{}}, \_openMensaVersion);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00124}00124             xmlWriter.WriteAttributeString(\textcolor{stringliteral}{"{}xmlns"{}}, \_feedInformation);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00125}00125             xmlWriter.WriteAttributeString(\textcolor{stringliteral}{"{}xmlns"{}}, \textcolor{stringliteral}{"{}xsi"{}}, \textcolor{keyword}{null}, \_schemaInstance);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00126}00126             xmlWriter.WriteAttributeString(\textcolor{stringliteral}{"{}xsi"{}}, \textcolor{stringliteral}{"{}schemaLocation"{}}, \textcolor{keyword}{null}, \_feedInformation + \textcolor{stringliteral}{"{} "{}} + \_schemaLocation);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00127}00127             xmlWriter.WriteStartElement(\textcolor{stringliteral}{"{}version"{}});}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00128}00128             xmlWriter.WriteString(\_parserVersion);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00129}00129             xmlWriter.WriteEndElement();}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00130}00130             xmlWriter.WriteStartElement(\textcolor{stringliteral}{"{}canteen"{}});}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00131}00131         \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00143}00143         \textcolor{keyword}{private} \textcolor{keywordtype}{void} WritePriceInformation(Dish dish, XmlTextWriter xmlWriter)}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00144}00144         \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00145}00145             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < dish.Prices.Length; i++)}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00146}00146             \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00147}00147                 xmlWriter.WriteStartElement(\textcolor{stringliteral}{"{}price"{}});}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00148}00148                 xmlWriter.WriteAttributeString(\textcolor{stringliteral}{"{}role"{}}, roleNames[i]);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00149}00149                 xmlWriter.WriteString(dish.Prices[i].Replace(\textcolor{charliteral}{','}, \textcolor{charliteral}{'.'}).TrimEnd(removedCharacters));}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00150}00150                 xmlWriter.WriteEndElement();}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00151}00151             \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00152}00152         \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00153}00153 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00163}00163         \textcolor{keyword}{private} \textcolor{keywordtype}{void} WriteMenuInformation(XmlTextWriter xmlWriter)}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00164}00164         \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00165}00165             \textcolor{keywordflow}{foreach}(Weekday day \textcolor{keywordflow}{in} MenuInstance.WeekdayList)}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00166}00166             \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00167}00167                 DateTime dateTime = DateTime.Parse(day.Date);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00168}00168 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00169}00169                 xmlWriter.WriteStartElement(\textcolor{stringliteral}{"{}day"{}});}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00170}00170                 xmlWriter.WriteAttributeString(\textcolor{stringliteral}{"{}date"{}}, dateTime.ToString(\textcolor{stringliteral}{"{}yyyy'-\/'MM'-\/'dd"{}}));}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00172}00172                 \textcolor{keywordflow}{foreach}(Category category \textcolor{keywordflow}{in} day.CategoryList)}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00173}00173                 \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00174}00174                     xmlWriter.WriteStartElement(\textcolor{stringliteral}{"{}category"{}});}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00175}00175                     xmlWriter.WriteAttributeString(\textcolor{stringliteral}{"{}name"{}}, category.Name);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00176}00176                     \textcolor{keywordflow}{foreach}(Dish dish \textcolor{keywordflow}{in} category.DishList)}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00177}00177                     \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00178}00178                         xmlWriter.WriteStartElement(\textcolor{stringliteral}{"{}meal"{}});}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00179}00179                         xmlWriter.WriteStartElement(\textcolor{stringliteral}{"{}name"{}});}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00180}00180                         xmlWriter.WriteString(dish.DishName);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00181}00181                         xmlWriter.WriteEndElement();}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00182}00182                     }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00183}00183                         \textcolor{keywordflow}{if}(dish.SpecialIngredients.Count != 0)}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00184}00184                         \{}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00185}00185                             xmlWriter.WriteStartElement(\textcolor{stringliteral}{"{}note"{}});}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00186}00186 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00187}00187                             \textcolor{keywordflow}{foreach}(\textcolor{keywordtype}{string} specialIngretient \textcolor{keywordflow}{in} dish.SpecialIngredients)}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00188}00188                             \{ }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00189}00189                                 xmlWriter.WriteString(\textcolor{stringliteral}{"{}-\/"{}} + \mbox{\hyperlink{namespaceOpenMena__Parser}{OpenMena\_Parser}}.\mbox{\hyperlink{classOpenMena__Parser_1_1IngredientsTranslator}{IngredientsTranslator}}.TranslateIngredientIndicator(specialIngretient) + \textcolor{stringliteral}{"{} "{}});   }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00190}00190                             \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00191}00191 }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00192}00192                             xmlWriter.WriteEndElement();}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00193}00193                         \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00194}00194                         WritePriceInformation(dish, xmlWriter);}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00195}00195                         xmlWriter.WriteEndElement();}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00196}00196                     \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00197}00197                     xmlWriter.WriteEndElement();}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00198}00198                 \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00199}00199                 xmlWriter.WriteEndElement();}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00200}00200             \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00201}00201             xmlWriter.WriteEndDocument();}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00202}00202             xmlWriter.Flush();}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00203}00203             xmlWriter.Close();  }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00204}00204         \}      }
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00205}00205     \}}
+\DoxyCodeLine{\Hypertarget{XmlWriter_8cs_source_l00206}00206 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,120 @@
+\hypertarget{classOpenMensa__Parser_1_1XmlWriter}{}\doxysection{Open\+Mensa\+\_\+\+Parser.\+Xml\+Writer Class Reference}
+\label{classOpenMensa__Parser_1_1XmlWriter}\index{OpenMensa\_Parser.XmlWriter@{OpenMensa\_Parser.XmlWriter}}
+
+
+Class that contains methods to write provided information into a .xml file.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classOpenMensa__Parser_1_1XmlWriter_ad0f80adb782dfc5c33b67cc5230cdea2}{Xml\+Writer}} (string file\+Name, string parser\+Version, string open\+Mensa\+Version, string feed\+Information, string schema\+Instance, string schema\+Location, \mbox{\hyperlink{classOpenMensa__Parser_1_1Menu}{Menu}} menu, string xml\+File\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor that allocates a value to each field. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOpenMensa__Parser_1_1XmlWriter_af77a4dc949a755355a6b29ece8f917d4}{Write\+Xml\+File}} ()
+\begin{DoxyCompactList}\small\item\em Method that writes the whole .xml file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOpenMensa__Parser_1_1XmlWriter_a7dd1b702d099912ec34538b188ec1426}\label{classOpenMensa__Parser_1_1XmlWriter_a7dd1b702d099912ec34538b188ec1426}} 
+\mbox{\hyperlink{classOpenMensa__Parser_1_1Menu}{Menu}} {\bfseries Menu\+Instance}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that contains methods to write provided information into a .xml file. 
+
+
+
+Definition at line 27 of file Xml\+Writer.\+cs.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOpenMensa__Parser_1_1XmlWriter_ad0f80adb782dfc5c33b67cc5230cdea2}\label{classOpenMensa__Parser_1_1XmlWriter_ad0f80adb782dfc5c33b67cc5230cdea2}} 
+\index{OpenMensa\_Parser.XmlWriter@{OpenMensa\_Parser.XmlWriter}!XmlWriter@{XmlWriter}}
+\index{XmlWriter@{XmlWriter}!OpenMensa\_Parser.XmlWriter@{OpenMensa\_Parser.XmlWriter}}
+\doxysubsubsection{\texorpdfstring{XmlWriter()}{XmlWriter()}}
+{\footnotesize\ttfamily Open\+Mensa\+\_\+\+Parser.\+Xml\+Writer.\+Xml\+Writer (\begin{DoxyParamCaption}\item[{string}]{file\+Name,  }\item[{string}]{parser\+Version,  }\item[{string}]{open\+Mensa\+Version,  }\item[{string}]{feed\+Information,  }\item[{string}]{schema\+Instance,  }\item[{string}]{schema\+Location,  }\item[{\mbox{\hyperlink{classOpenMensa__Parser_1_1Menu}{Menu}}}]{menu,  }\item[{string}]{xml\+File\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that allocates a value to each field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Name} & Name of the generated .xml file \\
+\hline
+\mbox{\texttt{ in}}  & {\em parser\+Version} & Current version of our Open\+Mensa parser \\
+\hline
+\mbox{\texttt{ in}}  & {\em open\+Mensa\+Version} & Current version of the Open\+Mensa project \\
+\hline
+\mbox{\texttt{ in}}  & {\em feed\+Information} & Provides an url to the current Open\+Mensa Feed \\
+\hline
+\mbox{\texttt{ in}}  & {\em schema\+Instance} & Provides information about the xml schema instance \\
+\hline
+\mbox{\texttt{ in}}  & {\em schema\+Location} & Download of the Open\+Mensa xml schema \\
+\hline
+\mbox{\texttt{ in}}  & {\em menu} & Instance of the \mbox{\hyperlink{classOpenMensa__Parser_1_1Menu}{Menu}} class, loaded with menu infomation \\
+\hline
+\mbox{\texttt{ in}}  & {\em xml\+File\+Path} & File path where the .xml file is saved at \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file Xml\+Writer.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73         \{}
+\DoxyCodeLine{74             \_fileName = fileName;}
+\DoxyCodeLine{75             \_parserVersion = parserVersion;}
+\DoxyCodeLine{76             \_openMensaVersion = openMensaVersion;}
+\DoxyCodeLine{77             \_feedInformation = feedInformation;}
+\DoxyCodeLine{78             \_schemaInstance = schemaInstance;}
+\DoxyCodeLine{79             \_schemaLocation = schemaLocation;}
+\DoxyCodeLine{80             this.MenuInstance = menu;}
+\DoxyCodeLine{81         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOpenMensa__Parser_1_1XmlWriter_af77a4dc949a755355a6b29ece8f917d4}\label{classOpenMensa__Parser_1_1XmlWriter_af77a4dc949a755355a6b29ece8f917d4}} 
+\index{OpenMensa\_Parser.XmlWriter@{OpenMensa\_Parser.XmlWriter}!WriteXmlFile@{WriteXmlFile}}
+\index{WriteXmlFile@{WriteXmlFile}!OpenMensa\_Parser.XmlWriter@{OpenMensa\_Parser.XmlWriter}}
+\doxysubsubsection{\texorpdfstring{WriteXmlFile()}{WriteXmlFile()}}
+{\footnotesize\ttfamily void Open\+Mensa\+\_\+\+Parser.\+Xml\+Writer.\+Write\+Xml\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method that writes the whole .xml file. 
+
+A method, that generates an Instance of Xml\+Text\+Writer. It then calls the Write\+Open\+Mensa\+Standard\+Information method and the Write\+Menu\+Information method. \mbox{\hyperlink{classOpenMensa__Parser_1_1XmlWriter_af77a4dc949a755355a6b29ece8f917d4}{Write\+Xml\+File()}} method is public , so it can be accessed for each potential instance of the \mbox{\hyperlink{classOpenMensa__Parser_1_1XmlWriter}{Xml\+Writer}} class. After calling it, the whole .xml file will be (over-\/)written. 
+
+Definition at line 91 of file Xml\+Writer.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92         \{}
+\DoxyCodeLine{93             \textcolor{comment}{/*}}
+\DoxyCodeLine{94 \textcolor{comment}{            * @brief   Instance of XmlTextWriter class}}
+\DoxyCodeLine{95 \textcolor{comment}{            *}}
+\DoxyCodeLine{96 \textcolor{comment}{            * @details A new instance of the XmlTextWriterClass is created with the given parameters.}}
+\DoxyCodeLine{97 \textcolor{comment}{            *}}
+\DoxyCodeLine{98 \textcolor{comment}{            * @param[in]    \_xmlFilePath + fileName         Combines the name of the .xml file with its path for saving}}
+\DoxyCodeLine{99 \textcolor{comment}{            * @param[in]    System.Text.Encoding.UTF8       Defines the encoding format (UTF8) required by OpenMensa}}
+\DoxyCodeLine{100 \textcolor{comment}{            *}}
+\DoxyCodeLine{101 \textcolor{comment}{            */}}
+\DoxyCodeLine{102             XmlTextWriter xmlWriter = \textcolor{keyword}{new} XmlTextWriter(\_xmlFilePath + \_fileName, System.Text.Encoding.UTF8);}
+\DoxyCodeLine{103             xmlWriter.Formatting = Formatting.Indented;}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105             WriteOpenMensaStandardInformation(xmlWriter);}
+\DoxyCodeLine{106             WriteMenuInformation(xmlWriter);}
+\DoxyCodeLine{107         \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/network\+\_\+drives/\+T\+U\+B\+A\+F-\/\+Z\+F\+S1-\/\+S\+M\+B/02\+\_\+\+S\+S\+\_\+22/\+Softwareentwicklung/\+Exam\+\_\+\+Project/git\+\_\+repo/swe-\/sose2022\+\_\+exam-\/repository/\+Open\+Mensa\+\_\+\+Parser/\+Open\+Mensa\+\_\+\+Parser/\mbox{\hyperlink{XmlWriter_8cs}{Xml\+Writer.\+cs}}\end{DoxyCompactItemize}

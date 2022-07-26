@@ -1,0 +1,64 @@
+\hypertarget{IngredientsTranslator_8cs_source}{}\doxysection{/mnt/network\+\_\+drives/\+TUBAF-\/\+ZFS1-\/\+SMB/02\+\_\+\+SS\+\_\+22/\+Softwareentwicklung/\+Exam\+\_\+\+Project/git\+\_\+repo/swe-\/sose2022\+\_\+exam-\/repository/\+Open\+Mensa\+\_\+\+Parser/\+Open\+Mensa\+\_\+\+Parser/\+Ingredients\+Translator.cs}
+\mbox{\hyperlink{IngredientsTranslator_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00016}00016 \textcolor{keyword}{using} System;}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00017}00017 \textcolor{keyword}{using} System.Text;}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00019}\mbox{\hyperlink{namespaceOpenMena__Parser}{00019}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceOpenMena__Parser}{OpenMena\_Parser}}}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00020}00020 \{}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00024}00024     \textcolor{keyword}{static} \textcolor{keyword}{class }IngredientsTranslator}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00025}00025     \{}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00026}00026         \textcolor{keyword}{private} \textcolor{keyword}{static} Dictionary<string, string> IngredientsByStringIndicator = \textcolor{keyword}{new} Dictionary<string, string>() \{}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00027}00027             \{\textcolor{stringliteral}{"{}1"{}},\textcolor{stringliteral}{"{}mit Konservierungsstoffen"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00028}00028             \{\textcolor{stringliteral}{"{}2"{}}, \textcolor{stringliteral}{"{}mit Farbstoff"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00029}00029             \{\textcolor{stringliteral}{"{}3"{}}, \textcolor{stringliteral}{"{}gewachst"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00030}00030             \{\textcolor{stringliteral}{"{}4"{}}, \textcolor{stringliteral}{"{}geschwärzt"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00031}00031             \{\textcolor{stringliteral}{"{}5"{}}, \textcolor{stringliteral}{"{}mit Antioxidationsmittel"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00032}00032             \{\textcolor{stringliteral}{"{}6"{}}, \textcolor{stringliteral}{"{}mit Phosphat"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00033}00033             \{\textcolor{stringliteral}{"{}7"{}}, \textcolor{stringliteral}{"{}geschwefelt"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00034}00034             \{\textcolor{stringliteral}{"{}8"{}}, \textcolor{stringliteral}{"{}mit Süßungsmitteln"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00035}00035             \{\textcolor{stringliteral}{"{}9"{}}, \textcolor{stringliteral}{"{}mit Geschmacksverstärker"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00036}00036             \{\textcolor{stringliteral}{"{}10"{}}, \textcolor{stringliteral}{"{}phenylalaninhaltig"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00037}00037             \{\textcolor{stringliteral}{"{}16"{}}, \textcolor{stringliteral}{"{}chininhaltig"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00038}00038             \{\textcolor{stringliteral}{"{}18"{}}, \textcolor{stringliteral}{"{}Weichtiere"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00039}00039             \{\textcolor{stringliteral}{"{}19"{}}, \textcolor{stringliteral}{"{}glutenhaltig"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00040}00040             \{\textcolor{stringliteral}{"{}20"{}}, \textcolor{stringliteral}{"{}Krebstiere"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00041}00041             \{\textcolor{stringliteral}{"{}21"{}}, \textcolor{stringliteral}{"{}eihaltig"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00042}00042             \{\textcolor{stringliteral}{"{}22"{}}, \textcolor{stringliteral}{"{}Erdnüsse"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00043}00043             \{\textcolor{stringliteral}{"{}23"{}}, \textcolor{stringliteral}{"{}Soja"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00044}00044             \{\textcolor{stringliteral}{"{}24"{}}, \textcolor{stringliteral}{"{}Milch/Milchzucker"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00045}00045             \{\textcolor{stringliteral}{"{}25"{}}, \textcolor{stringliteral}{"{}Schalenfrüchte/Nüsse"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00046}00046             \{\textcolor{stringliteral}{"{}26"{}}, \textcolor{stringliteral}{"{}Sellerie"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00047}00047             \{\textcolor{stringliteral}{"{}27"{}}, \textcolor{stringliteral}{"{}Senf"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00048}00048             \{\textcolor{stringliteral}{"{}28"{}}, \textcolor{stringliteral}{"{}Sesamsamen"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00049}00049             \{\textcolor{stringliteral}{"{}29"{}}, \textcolor{stringliteral}{"{}Schwefeldioxid u. Sulfite"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00050}00050             \{\textcolor{stringliteral}{"{}30"{}}, \textcolor{stringliteral}{"{}Fisch (Allergen)"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00051}00051             \{\textcolor{stringliteral}{"{}31"{}}, \textcolor{stringliteral}{"{}Lupine"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00052}00052             \{\textcolor{stringliteral}{"{}35"{}}, \textcolor{stringliteral}{"{}mit Azofarbstoff"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00053}00053             \{\textcolor{stringliteral}{"{}43"{}}, \textcolor{stringliteral}{"{}mit kakaohaltiger Fettglasur"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00054}00054             \{\textcolor{stringliteral}{"{}171"{}}, \textcolor{stringliteral}{"{}ungeeignet für Vegetarier"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00055}00055             \{\textcolor{stringliteral}{"{}WEI"{}}, \textcolor{stringliteral}{"{}Weizen"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00056}00056             \{\textcolor{stringliteral}{"{}ROG"{}}, \textcolor{stringliteral}{"{}Roggen"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00057}00057             \{\textcolor{stringliteral}{"{}GER"{}}, \textcolor{stringliteral}{"{}Gerste"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00058}00058             \{\textcolor{stringliteral}{"{}HAF"{}}, \textcolor{stringliteral}{"{}Hafer"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00059}00059             \{\textcolor{stringliteral}{"{}DIN"{}}, \textcolor{stringliteral}{"{}Dinkel"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00060}00060             \{\textcolor{stringliteral}{"{}KAM"{}}, \textcolor{stringliteral}{"{}Kamut"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00061}00061             \{\textcolor{stringliteral}{"{}MAN"{}}, \textcolor{stringliteral}{"{}Mandeln"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00062}00062             \{\textcolor{stringliteral}{"{}HAS"{}}, \textcolor{stringliteral}{"{}Haselnüsse"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00063}00063             \{\textcolor{stringliteral}{"{}WAL"{}}, \textcolor{stringliteral}{"{}Walnüsse"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00064}00064             \{\textcolor{stringliteral}{"{}CAS"{}}, \textcolor{stringliteral}{"{}Cashewnüsse"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00065}00065             \{\textcolor{stringliteral}{"{}PEK"{}}, \textcolor{stringliteral}{"{}Pekanüsse"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00066}00066             \{\textcolor{stringliteral}{"{}PAR"{}}, \textcolor{stringliteral}{"{}Paranüsse"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00067}00067             \{\textcolor{stringliteral}{"{}PIS"{}}, \textcolor{stringliteral}{"{}Pistazien"{}}\},}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00068}00068             \{\textcolor{stringliteral}{"{}MAC"{}}, \textcolor{stringliteral}{"{}Macadamia"{}}\}}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00069}00069         \};}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00081}00081         \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{string} TranslateIngredientIndicator(\textcolor{keywordtype}{string} indicatorString)}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00082}00082         \{}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00083}00083             \textcolor{keywordflow}{return}  IngredientsByStringIndicator[indicatorString];}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00084}00084         \}}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00085}00085     \}}
+\DoxyCodeLine{\Hypertarget{IngredientsTranslator_8cs_source_l00086}00086 \}}
+
+\end{DoxyCode}

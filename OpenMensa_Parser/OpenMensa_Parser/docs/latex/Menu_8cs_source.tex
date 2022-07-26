@@ -1,0 +1,160 @@
+\hypertarget{Menu_8cs_source}{}\doxysection{/mnt/network\+\_\+drives/\+TUBAF-\/\+ZFS1-\/\+SMB/02\+\_\+\+SS\+\_\+22/\+Softwareentwicklung/\+Exam\+\_\+\+Project/git\+\_\+repo/swe-\/sose2022\+\_\+exam-\/repository/\+Open\+Mensa\+\_\+\+Parser/\+Open\+Mensa\+\_\+\+Parser/\+Menu.cs}
+\mbox{\hyperlink{Menu_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00015}00015 \textcolor{keyword}{using} System;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00016}00016 \textcolor{keyword}{using} HtmlAgilityPack;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00018}00018 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceOpenMensa__Parser}{OpenMensa\_Parser}}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00019}00019 \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00023}\mbox{\hyperlink{classOpenMensa__Parser_1_1Menu}{00023}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classOpenMensa__Parser_1_1Menu}{Menu}}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00024}00024     \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00025}00025         \textcolor{keyword}{private} \mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser}{HtmlParser}} \_parserInstance;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00026}00026         \textcolor{keyword}{public} List<Weekday> WeekdayList \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \} = \textcolor{keyword}{new} List<Weekday>();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00027}00027         \textcolor{keyword}{private} List<HtmlNode> \_weekdayNodes = \textcolor{keyword}{new} List<HtmlNode>();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00034}\mbox{\hyperlink{classOpenMensa__Parser_1_1Menu_a305c40ebcd6c62b08b1adcde050082b3}{00034}}         \textcolor{keyword}{public} \mbox{\hyperlink{classOpenMensa__Parser_1_1Menu_a305c40ebcd6c62b08b1adcde050082b3}{Menu}} (\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser}{HtmlParser}} parser)}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00035}00035         \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00036}00036             this.\_parserInstance = parser;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00037}00037         \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00045}\mbox{\hyperlink{classOpenMensa__Parser_1_1Menu_a573a6f856d83175831ed93cb1fc6fb07}{00045}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classOpenMensa__Parser_1_1Menu_a573a6f856d83175831ed93cb1fc6fb07}{GenrateWeekdayInstances}}()}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00046}00046         \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00047}00047             \textcolor{comment}{// get all dates (class = 'menu\_day', date=dd.mm.yyyy) of the week as nodes}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00048}00048             this.\_weekdayNodes = this.\_parserInstance.\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a8e82c83c802b056ace150114ad5e029a}{GetNodesByAttribute}}(this.\_parserInstance.rootNode, \textcolor{stringliteral}{"{}date"{}});}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00050}00050             \textcolor{comment}{// iterate through the date nodes}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00051}00051             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i<\_weekdayNodes.Count; i++)}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00052}00052             \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00053}00053                 \textcolor{comment}{// create a new instance of a weekday class foreach date in the list}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00054}00054                 \textcolor{comment}{// pass the \_parserInstance to the Weekday class}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00055}00055                 WeekdayList.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classOpenMensa__Parser_1_1Weekday}{Weekday}}(\_parserInstance, \_weekdayNodes[i]));}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00056}00056                 \textcolor{comment}{// call the function parse the categories}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00057}00057                 WeekdayList[i].GenerateCategoryInstances();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00058}00058             \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00059}00059         \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00060}00060     \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00065}\mbox{\hyperlink{classOpenMensa__Parser_1_1Weekday}{00065}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classOpenMensa__Parser_1_1Weekday}{Weekday}}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00066}00066     \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00067}00067         \textcolor{keyword}{private} \mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser}{HtmlParser}} \_parserInstance;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00068}00068         \textcolor{keyword}{private} HtmlNode \_weekdayNode;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00069}00069         \textcolor{keyword}{public} \textcolor{keywordtype}{string} Date \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00070}00070         \textcolor{keyword}{public} List<Category> CategoryList \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \} = \textcolor{keyword}{new} List<Category>();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00071}00071         \textcolor{keyword}{private} List<HtmlNode> \_categoryNodes = \textcolor{keyword}{new} List<HtmlNode>();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00079}\mbox{\hyperlink{classOpenMensa__Parser_1_1Weekday_aa8b31d69bd5bffabc29f547a200495eb}{00079}}         \textcolor{keyword}{public} \mbox{\hyperlink{classOpenMensa__Parser_1_1Weekday_aa8b31d69bd5bffabc29f547a200495eb}{Weekday}}(\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser}{HtmlParser}} parser, HtmlNode weekdayNode)}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00080}00080         \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00081}00081             this.\_parserInstance = parser;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00082}00082             this.\_weekdayNode = weekdayNode;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00083}00083             \textcolor{comment}{// extract the date string from the node}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00084}00084             this.Date = weekdayNode.GetAttributeValue(\textcolor{stringliteral}{"{}date"{}}, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00085}00085         \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00093}\mbox{\hyperlink{classOpenMensa__Parser_1_1Weekday_a9f110b804343f7f162daa59dd928d5ca}{00093}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classOpenMensa__Parser_1_1Weekday_a9f110b804343f7f162daa59dd928d5ca}{GenerateCategoryInstances}}()}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00094}00094         \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00095}00095             \textcolor{comment}{// get all categories of the current weekday as nodes}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00096}00096             this.\_categoryNodes = this.\_parserInstance.\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a8e82c83c802b056ace150114ad5e029a}{GetNodesByAttribute}}(\_weekdayNode, \textcolor{stringliteral}{"{}class"{}}, \textcolor{stringliteral}{"{}category "{}});}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00098}00098             \textcolor{comment}{// iterate through the category nodes}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00099}00099             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i<\_categoryNodes.Count; i++)}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00100}00100             \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00101}00101                 \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00102}00102                 \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00103}00103                     CategoryList.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classOpenMensa__Parser_1_1Category}{Category}}(\_parserInstance, \_categoryNodes[i], \_categoryNodes[i+1]));}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00104}00104                 \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00105}00105                 \textcolor{comment}{// the second bound for the last category is no category node but the last child of the date node}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00106}00106                 \textcolor{keywordflow}{catch} (System.ArgumentOutOfRangeException)}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00107}00107                 \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00108}00108                     CategoryList.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classOpenMensa__Parser_1_1Category}{Category}}(\_parserInstance, \_categoryNodes[i], \_weekdayNode.LastChild));}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00109}00109                 \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00110}00110                 \textcolor{comment}{// call the function parse the categories}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00111}00111                 CategoryList[i].GenerateDishInstances();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00112}00112             \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00113}00113         \}      }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00114}00114     \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00119}\mbox{\hyperlink{classOpenMensa__Parser_1_1Category}{00119}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classOpenMensa__Parser_1_1Category}{Category}}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00120}00120     \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00121}00121         \textcolor{keyword}{private} \mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser}{HtmlParser}} \_parserInstance;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00122}00122         \textcolor{keyword}{private} HtmlNode \_categoryNode;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00123}00123         \textcolor{keyword}{private} HtmlNode \_nextCategoryNode;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00124}00124         \textcolor{keyword}{public} \textcolor{keywordtype}{string} Name \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00125}00125         \textcolor{keyword}{public} List<Dish> DishList \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \} = \textcolor{keyword}{new} List<Dish>();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00126}00126         \textcolor{keyword}{private} List<HtmlNode> \_dishNodes = \textcolor{keyword}{new} List<HtmlNode>();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00136}\mbox{\hyperlink{classOpenMensa__Parser_1_1Category_a5dea9a8408aba8c6f57fbd84f1867a60}{00136}}         \textcolor{keyword}{public} \mbox{\hyperlink{classOpenMensa__Parser_1_1Category_a5dea9a8408aba8c6f57fbd84f1867a60}{Category}}(\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser}{HtmlParser}} parser, HtmlNode categoryNode, HtmlNode nextCategoryNode)}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00137}00137         \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00138}00138             this.\_parserInstance = parser;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00139}00139             this.\_categoryNode = categoryNode;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00140}00140             this.\_nextCategoryNode =nextCategoryNode;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00141}00141             \textcolor{comment}{// extract the category string from the node}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00142}00142             this.Name = categoryNode.GetDirectInnerText().Trim();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00143}00143         \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00151}\mbox{\hyperlink{classOpenMensa__Parser_1_1Category_a9232b689ac6d6d7157aeb8588b94f245}{00151}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classOpenMensa__Parser_1_1Category_a9232b689ac6d6d7157aeb8588b94f245}{GenerateDishInstances}}()}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00152}00152         \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00153}00153             \textcolor{comment}{// get all dishes of the current category as nodes}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00154}00154             this.\_dishNodes = this.\_parserInstance.\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a57b0474c85a26dfc0dbad944f0b9dbb8}{GetNodesByNodeBounds}}(\_categoryNode.ParentNode, \_categoryNode, \_nextCategoryNode, \textcolor{stringliteral}{"{}class"{}}, \textcolor{stringliteral}{"{}row"{}});}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00155}00155             \textcolor{comment}{// iterate through the dish nodes}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00156}00156             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i<\_dishNodes.Count; i++)}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00157}00157             \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00158}00158                 DishList.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classOpenMensa__Parser_1_1Dish}{Dish}}(\_parserInstance, \_dishNodes[i]));}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00159}00159             \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00160}00160         \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00161}00161     \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00162}00162 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00166}\mbox{\hyperlink{classOpenMensa__Parser_1_1Dish}{00166}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classOpenMensa__Parser_1_1Dish}{Dish}}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00167}00167     \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00168}00168         \textcolor{keyword}{private} \mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser}{HtmlParser}} \_parserInstance;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00169}00169         \textcolor{keyword}{private} HtmlNode \_dishNode;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00170}00170         \textcolor{keyword}{public} \textcolor{keywordtype}{string} DishName \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00171}00171         \textcolor{keyword}{public} \textcolor{keywordtype}{string}[] Prices \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00172}00172 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00173}00173         \textcolor{keyword}{public} List<string> SpecialIngredients = \textcolor{keyword}{new} List<string>();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00174}00174 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00182}\mbox{\hyperlink{classOpenMensa__Parser_1_1Dish_a4c8b6d4cdb591ab6fec5b63868e5680e}{00182}}         \textcolor{keyword}{public} \mbox{\hyperlink{classOpenMensa__Parser_1_1Dish_a4c8b6d4cdb591ab6fec5b63868e5680e}{Dish}}(\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser}{HtmlParser}} parser, HtmlNode dishNode)}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00183}00183         \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00184}00184             this.Prices = \textcolor{keyword}{new} \textcolor{keywordtype}{string}[4];}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00185}00185             this.\_parserInstance = parser;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00186}00186             this.\_dishNode = dishNode;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00187}00187 }
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00188}00188             \textcolor{comment}{// GetNodesByAttribute returns allways a list -\/> iteration through one element -\/> TODO: improvements needed}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00189}00189             \textcolor{keywordflow}{foreach} (HtmlNode dishTitle \textcolor{keywordflow}{in} this.\_parserInstance.\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a8e82c83c802b056ace150114ad5e029a}{GetNodesByAttribute}}(\textcolor{keyword}{this}.\_dishNode, \textcolor{stringliteral}{"{}class"{}}, \textcolor{stringliteral}{"{}menu\_title"{}}))}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00190}00190             \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00191}00191                 this.DishName = dishTitle.GetDirectInnerText().Trim();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00192}00192             \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00193}00193             \textcolor{keywordflow}{foreach} (HtmlNode dishDescription \textcolor{keywordflow}{in} this.\_parserInstance.\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a8e82c83c802b056ace150114ad5e029a}{GetNodesByAttribute}}(\textcolor{keyword}{this}.\_dishNode, \textcolor{stringliteral}{"{}class"{}}, \textcolor{stringliteral}{"{}description"{}}))}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00194}00194             \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00195}00195                 \textcolor{comment}{// add the dish description to the title of the dish}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00196}00196                 \textcolor{keywordflow}{if} (dishDescription.ChildNodes[1].GetDirectInnerText().Trim() != \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00197}00197                 \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00198}00198                     this.DishName += \textcolor{stringliteral}{"{} -\/ "{}} + dishDescription.ChildNodes[1].GetDirectInnerText().Trim();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00199}00199                 \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00200}00200                 \textcolor{comment}{// parent node for the ingredients (one element list as well)}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00201}00201                 \textcolor{keywordflow}{foreach} (HtmlNode dishCharacterisation \textcolor{keywordflow}{in} this.\_parserInstance.\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a8e82c83c802b056ace150114ad5e029a}{GetNodesByAttribute}}(dishDescription, \textcolor{stringliteral}{"{}class"{}}, \textcolor{stringliteral}{"{}characterisation"{}}))}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00202}00202                 \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00203}00203                     \textcolor{comment}{// write all special ingredients to the list}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00204}00204                     \textcolor{keywordflow}{foreach} (HtmlNode dishIngredient \textcolor{keywordflow}{in} this.\_parserInstance.\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a8e82c83c802b056ace150114ad5e029a}{GetNodesByAttribute}}(dishCharacterisation, \textcolor{stringliteral}{"{}title"{}}))}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00205}00205                     \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00206}00206                         this.SpecialIngredients.Add(dishIngredient.GetDirectInnerText().Trim());}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00207}00207                     \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00208}00208                 \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00209}00209                 \textcolor{comment}{// parent node for the prices (one element list as well)}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00210}00210                 \textcolor{keywordflow}{foreach} (HtmlNode dishPrice \textcolor{keywordflow}{in} this.\_parserInstance.\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a8e82c83c802b056ace150114ad5e029a}{GetNodesByAttribute}}(dishDescription, \textcolor{stringliteral}{"{}class"{}}, \textcolor{stringliteral}{"{}price"{}}))}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00211}00211                 \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00212}00212                     \textcolor{comment}{// indexer for the price array -\/> additionally needed because of foreach loop (but in this case better than for)}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00213}00213                     \textcolor{keywordtype}{int} priceIndexer=0;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00214}00214                     \textcolor{keywordflow}{foreach} (HtmlNode dishPriceClass \textcolor{keywordflow}{in} this.\_parserInstance.\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a8e82c83c802b056ace150114ad5e029a}{GetNodesByAttribute}}(dishPrice, \textcolor{stringliteral}{"{}title"{}}))}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00215}00215                     \{}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00216}00216                         \textcolor{comment}{// write all prices to the array}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00217}00217                         this.Prices[priceIndexer] = dishPriceClass.GetDirectInnerText().Trim();}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00218}00218                         priceIndexer++;}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00219}00219                     \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00220}00220                 \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00221}00221             \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00222}00222         \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00223}00223     \}}
+\DoxyCodeLine{\Hypertarget{Menu_8cs_source_l00224}00224 \}}
+
+\end{DoxyCode}

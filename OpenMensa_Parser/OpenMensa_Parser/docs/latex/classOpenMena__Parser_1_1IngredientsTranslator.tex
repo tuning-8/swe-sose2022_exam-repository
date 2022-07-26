@@ -1,0 +1,58 @@
+\hypertarget{classOpenMena__Parser_1_1IngredientsTranslator}{}\doxysection{Open\+Mena\+\_\+\+Parser.\+Ingredients\+Translator Class Reference}
+\label{classOpenMena__Parser_1_1IngredientsTranslator}\index{OpenMena\_Parser.IngredientsTranslator@{OpenMena\_Parser.IngredientsTranslator}}
+
+
+Class includes the translation dictionary and method.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{classOpenMena__Parser_1_1IngredientsTranslator_ac04c8f0254f8526a1572d36746a844ad}{Translate\+Ingredient\+Indicator}} (string indicator\+String)
+\begin{DoxyCompactList}\small\item\em Method to translate ingredient number to description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class includes the translation dictionary and method. 
+
+Definition at line 24 of file Ingredients\+Translator.\+cs.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOpenMena__Parser_1_1IngredientsTranslator_ac04c8f0254f8526a1572d36746a844ad}\label{classOpenMena__Parser_1_1IngredientsTranslator_ac04c8f0254f8526a1572d36746a844ad}} 
+\index{OpenMena\_Parser.IngredientsTranslator@{OpenMena\_Parser.IngredientsTranslator}!TranslateIngredientIndicator@{TranslateIngredientIndicator}}
+\index{TranslateIngredientIndicator@{TranslateIngredientIndicator}!OpenMena\_Parser.IngredientsTranslator@{OpenMena\_Parser.IngredientsTranslator}}
+\doxysubsubsection{\texorpdfstring{TranslateIngredientIndicator()}{TranslateIngredientIndicator()}}
+{\footnotesize\ttfamily static string Open\+Mena\+\_\+\+Parser.\+Ingredients\+Translator.\+Translate\+Ingredient\+Indicator (\begin{DoxyParamCaption}\item[{string}]{indicator\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Method to translate ingredient number to description. 
+
+@detail A method that returns a short description of a specific ingredient (value of the dictionary) with the ingredient number/short string as input (key of the dictionary)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em indicator\+String} & Ingredient abbraviation (key) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Full description of the ingredient (value) 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file Ingredients\+Translator.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92         \{}
+\DoxyCodeLine{93             \textcolor{keywordflow}{return}  IngredientsByStringIndicator[indicatorString];}
+\DoxyCodeLine{94         \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/network\+\_\+drives/\+T\+U\+B\+A\+F-\/\+Z\+F\+S1-\/\+S\+M\+B/02\+\_\+\+S\+S\+\_\+22/\+Softwareentwicklung/\+Exam\+\_\+\+Project/git\+\_\+repo/swe-\/sose2022\+\_\+exam-\/repository/\+Open\+Mensa\+\_\+\+Parser/\+Open\+Mensa\+\_\+\+Parser/\mbox{\hyperlink{IngredientsTranslator_8cs}{Ingredients\+Translator.\+cs}}\end{DoxyCompactItemize}

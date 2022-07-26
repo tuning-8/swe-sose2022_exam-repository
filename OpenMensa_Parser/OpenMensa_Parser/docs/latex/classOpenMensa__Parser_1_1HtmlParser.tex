@@ -1,0 +1,240 @@
+\hypertarget{classOpenMensa__Parser_1_1HtmlParser}{}\doxysection{Open\+Mensa\+\_\+\+Parser.\+Html\+Parser Class Reference}
+\label{classOpenMensa__Parser_1_1HtmlParser}\index{OpenMensa\_Parser.HtmlParser@{OpenMensa\_Parser.HtmlParser}}
+
+
+Class that contains methods to parse H\+T\+ML nodes from a website.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ Html\+Agility\+Pack.\+Html\+Node?$>$ \mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a4d4e6c1563bc4891e97095eca04cfdff}{Get\+Nodes\+By\+Attribute}} (Html\+Node parent\+Node, string attribute\+Name)
+\begin{DoxyCompactList}\small\item\em Method to parse a list of nodes. \end{DoxyCompactList}\item 
+List$<$ Html\+Agility\+Pack.\+Html\+Node?$>$ \mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a776012d132bba231907cbf9e57f16863}{Get\+Nodes\+By\+Attribute}} (Html\+Node parent\+Node, string attribute\+Name, string attribute\+Value)
+\begin{DoxyCompactList}\small\item\em Method to parse a list of nodes. \end{DoxyCompactList}\item 
+List$<$ Html\+Agility\+Pack.\+Html\+Node?$>$ \mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a243a12679c1a8bd620e00ac3b5ab3a8b}{Get\+Nodes\+By\+Node\+Bounds}} (Html\+Node parent\+Node, Html\+Node first\+Bound\+Node, Html\+Node second\+Bound\+Node, string attribute\+Name, string attribute\+Value)
+\begin{DoxyCompactList}\small\item\em Method to parse a list of nodes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classOpenMensa__Parser_1_1HtmlParser_a9b53f96499838787bd076b7454cbe2b7}{Html\+Parser}} (string url, string node)
+\begin{DoxyCompactList}\small\item\em Constructor that instances the \textquotesingle{}Html Agility Pack\textquotesingle{} and loads the website. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOpenMensa__Parser_1_1HtmlParser_a7bada10511d4121a2917b51ea952fec8}\label{classOpenMensa__Parser_1_1HtmlParser_a7bada10511d4121a2917b51ea952fec8}} 
+string {\bfseries html\+U\+RL}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\Hypertarget{classOpenMensa__Parser_1_1HtmlParser_a2ec9b1af8b4fc5b31cc28f2b53b99ff8}\label{classOpenMensa__Parser_1_1HtmlParser_a2ec9b1af8b4fc5b31cc28f2b53b99ff8}} 
+Html\+Document {\bfseries html\+Doc}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\Hypertarget{classOpenMensa__Parser_1_1HtmlParser_a367b5255de48df698a53867fb55f8746}\label{classOpenMensa__Parser_1_1HtmlParser_a367b5255de48df698a53867fb55f8746}} 
+Html\+Node {\bfseries root\+Node}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that contains methods to parse H\+T\+ML nodes from a website. 
+
+Definition at line 23 of file Html\+Parser.\+cs.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOpenMensa__Parser_1_1HtmlParser_a9b53f96499838787bd076b7454cbe2b7}\label{classOpenMensa__Parser_1_1HtmlParser_a9b53f96499838787bd076b7454cbe2b7}} 
+\index{OpenMensa\_Parser.HtmlParser@{OpenMensa\_Parser.HtmlParser}!HtmlParser@{HtmlParser}}
+\index{HtmlParser@{HtmlParser}!OpenMensa\_Parser.HtmlParser@{OpenMensa\_Parser.HtmlParser}}
+\doxysubsubsection{\texorpdfstring{HtmlParser()}{HtmlParser()}}
+{\footnotesize\ttfamily Open\+Mensa\+\_\+\+Parser.\+Html\+Parser.\+Html\+Parser (\begin{DoxyParamCaption}\item[{string}]{url,  }\item[{string}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that instances the \textquotesingle{}Html Agility Pack\textquotesingle{} and loads the website. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em url} & U\+RL to the canteens menu \\
+\hline
+\mbox{\texttt{ in}}  & {\em node} & Root node (highest hirarchical level) from where the menu is listed on the website \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 157 of file Html\+Parser.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{158         \{}
+\DoxyCodeLine{159             this.htmlURL = url;}
+\DoxyCodeLine{160             this.web = \textcolor{keyword}{new} HtmlWeb();}
+\DoxyCodeLine{161             this.htmlDoc = web.Load(url);}
+\DoxyCodeLine{162             this.rootNode = htmlDoc.DocumentNode.SelectSingleNode(node);}
+\DoxyCodeLine{163         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOpenMensa__Parser_1_1HtmlParser_a4d4e6c1563bc4891e97095eca04cfdff}\label{classOpenMensa__Parser_1_1HtmlParser_a4d4e6c1563bc4891e97095eca04cfdff}} 
+\index{OpenMensa\_Parser.HtmlParser@{OpenMensa\_Parser.HtmlParser}!GetNodesByAttribute@{GetNodesByAttribute}}
+\index{GetNodesByAttribute@{GetNodesByAttribute}!OpenMensa\_Parser.HtmlParser@{OpenMensa\_Parser.HtmlParser}}
+\doxysubsubsection{\texorpdfstring{GetNodesByAttribute()}{GetNodesByAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily List$<$Html\+Agility\+Pack.\+Html\+Node?$>$ Open\+Mensa\+\_\+\+Parser.\+Html\+Parser.\+Get\+Nodes\+By\+Attribute (\begin{DoxyParamCaption}\item[{Html\+Node}]{parent\+Node,  }\item[{string}]{attribute\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to parse a list of nodes. 
+
+A method that parses every H\+T\+ML Node that has one attribute where the attributes name is equal to the parameter. The hirarchical level (starting point) is called parent. All attributes that are exactly one level below the parent (so called childs) will be checked for the conditions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent\+Node} & H\+T\+ML node (and corresponding level) where the parser starts \\
+\hline
+\mbox{\texttt{ in}}  & {\em attribute\+Name} & Name of the attribute where all nodes are checked against (e.\+g. \char`\"{}class\char`\"{}, \char`\"{}title\char`\"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of H\+T\+ML nodes that are matching the condition 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file Html\+Parser.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44         \{}
+\DoxyCodeLine{45             List <HtmlAgilityPack.HtmlNode?> Nodes = \textcolor{keyword}{new} List <HtmlAgilityPack.HtmlNode?>();}
+\DoxyCodeLine{46             \textcolor{comment}{// iteration through all direct child nodes (one hiarchal level below parent)}}
+\DoxyCodeLine{47             \textcolor{keywordflow}{foreach} (var ChildNode \textcolor{keywordflow}{in} parentNode.ChildNodes)}
+\DoxyCodeLine{48             \{}
+\DoxyCodeLine{49                 \textcolor{keywordflow}{if} (ChildNode.NodeType == HtmlNodeType.Element)}
+\DoxyCodeLine{50                 \{}
+\DoxyCodeLine{51                     \textcolor{comment}{// collect all attributes of the current child}}
+\DoxyCodeLine{52                     var Attributes = ChildNode.GetAttributes();}
+\DoxyCodeLine{53                     \textcolor{keywordflow}{foreach} (var attribute \textcolor{keywordflow}{in} Attributes)}
+\DoxyCodeLine{54                     \{}
+\DoxyCodeLine{55                         \textcolor{comment}{// append the nodes to the list if the attribute name matches the parameter}}
+\DoxyCodeLine{56                         \textcolor{keywordflow}{if} (attribute.Name == attributeName)}
+\DoxyCodeLine{57                         \{}
+\DoxyCodeLine{58                             Nodes.Add(htmlDoc.DocumentNode.SelectSingleNode((ChildNode.XPath).ToString()));}
+\DoxyCodeLine{59                         \}}
+\DoxyCodeLine{60                     \}}
+\DoxyCodeLine{61                 \}}
+\DoxyCodeLine{62             \}}
+\DoxyCodeLine{63             \textcolor{keywordflow}{return} Nodes;}
+\DoxyCodeLine{64         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classOpenMensa__Parser_1_1HtmlParser_a776012d132bba231907cbf9e57f16863}\label{classOpenMensa__Parser_1_1HtmlParser_a776012d132bba231907cbf9e57f16863}} 
+\index{OpenMensa\_Parser.HtmlParser@{OpenMensa\_Parser.HtmlParser}!GetNodesByAttribute@{GetNodesByAttribute}}
+\index{GetNodesByAttribute@{GetNodesByAttribute}!OpenMensa\_Parser.HtmlParser@{OpenMensa\_Parser.HtmlParser}}
+\doxysubsubsection{\texorpdfstring{GetNodesByAttribute()}{GetNodesByAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily List$<$Html\+Agility\+Pack.\+Html\+Node?$>$ Open\+Mensa\+\_\+\+Parser.\+Html\+Parser.\+Get\+Nodes\+By\+Attribute (\begin{DoxyParamCaption}\item[{Html\+Node}]{parent\+Node,  }\item[{string}]{attribute\+Name,  }\item[{string}]{attribute\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to parse a list of nodes. 
+
+A method that parses every H\+T\+ML Node that has one attribute where the attributes name and its attribute value are equal to the parameters. The hirarchical level (starting point) is called parent. All attributes that are exactly one level below the parent (so called childs) will be checked for the conditions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent\+Node} & H\+T\+ML node (and corresponding level) where the parser starts \\
+\hline
+\mbox{\texttt{ in}}  & {\em attribute\+Name} & Name of the attribute where all nodes are checked against (e.\+g. \char`\"{}class\char`\"{}, \char`\"{}title\char`\"{}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em attribute\+Value} & Value that the attribute must contain (e.\+g. \char`\"{}21.\+07.\+22\char`\"{}, \char`\"{}category\char`\"{}, \char`\"{}row\char`\"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of H\+T\+ML nodes that are matching the conditions 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file Html\+Parser.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80         \{}
+\DoxyCodeLine{81             List <HtmlAgilityPack.HtmlNode?> Nodes = \textcolor{keyword}{new} List <HtmlAgilityPack.HtmlNode?>();}
+\DoxyCodeLine{82             \textcolor{comment}{// iteration through all direct child nodes (one hiarchal level below parent)}}
+\DoxyCodeLine{83             \textcolor{keywordflow}{foreach} (var ChildNode \textcolor{keywordflow}{in} parentNode.ChildNodes)}
+\DoxyCodeLine{84             \{}
+\DoxyCodeLine{85                 \textcolor{keywordflow}{if} (ChildNode.NodeType == HtmlNodeType.Element)}
+\DoxyCodeLine{86                 \{}
+\DoxyCodeLine{87                     \textcolor{comment}{// collect all attributes of the current child}}
+\DoxyCodeLine{88                     var Attributes = ChildNode.GetAttributes();}
+\DoxyCodeLine{89                     \textcolor{keywordflow}{foreach} (var attribute \textcolor{keywordflow}{in} Attributes)}
+\DoxyCodeLine{90                     \{}
+\DoxyCodeLine{91                         \textcolor{comment}{// append the nodes to the list if the attribute name and value match the parameters}}
+\DoxyCodeLine{92                         \textcolor{keywordflow}{if} (attribute.Name == attributeName }
+\DoxyCodeLine{93                             \&\& ChildNode.GetAttributeValue(attributeName, \textcolor{stringliteral}{""}) == attributeValue)}
+\DoxyCodeLine{94                             \{}
+\DoxyCodeLine{95                                 Nodes.Add(htmlDoc.DocumentNode.SelectSingleNode((ChildNode.XPath).ToString()));}
+\DoxyCodeLine{96                             \}}
+\DoxyCodeLine{97                     \}}
+\DoxyCodeLine{98                 \}}
+\DoxyCodeLine{99             \}}
+\DoxyCodeLine{100             \textcolor{keywordflow}{return} Nodes;}
+\DoxyCodeLine{101         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classOpenMensa__Parser_1_1HtmlParser_a243a12679c1a8bd620e00ac3b5ab3a8b}\label{classOpenMensa__Parser_1_1HtmlParser_a243a12679c1a8bd620e00ac3b5ab3a8b}} 
+\index{OpenMensa\_Parser.HtmlParser@{OpenMensa\_Parser.HtmlParser}!GetNodesByNodeBounds@{GetNodesByNodeBounds}}
+\index{GetNodesByNodeBounds@{GetNodesByNodeBounds}!OpenMensa\_Parser.HtmlParser@{OpenMensa\_Parser.HtmlParser}}
+\doxysubsubsection{\texorpdfstring{GetNodesByNodeBounds()}{GetNodesByNodeBounds()}}
+{\footnotesize\ttfamily List$<$Html\+Agility\+Pack.\+Html\+Node?$>$ Open\+Mensa\+\_\+\+Parser.\+Html\+Parser.\+Get\+Nodes\+By\+Node\+Bounds (\begin{DoxyParamCaption}\item[{Html\+Node}]{parent\+Node,  }\item[{Html\+Node}]{first\+Bound\+Node,  }\item[{Html\+Node}]{second\+Bound\+Node,  }\item[{string}]{attribute\+Name,  }\item[{string}]{attribute\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to parse a list of nodes. 
+
+A method that parses every H\+T\+ML node that has one attribute where the attributes name and its attribute value are equal to the parameters and is between two equal \char`\"{}bound\char`\"{} attributes that are on the same level as the wanted node. The hirarchical level (starting point) is called parent. All attributes that are exactly one level below the parent (so called childs) will be checked for the conditions.
+
+\begin{DoxyNote}{Note}
+Example\+: $<$div class=\char`\"{}category\char`\"{} .....$>$ -\/$>$ first bound node (axclusive) $<$div class=\char`\"{}row\char`\"{} ....$>$ -\/$>$ returned node $<$div class=\char`\"{}row\char`\"{} ....$>$ -\/$>$ returned node $<$div class=\char`\"{}row\char`\"{} ....$>$ -\/$>$ returned node $<$div class=\char`\"{}category\char`\"{} .....$>$ -\/$>$ second bound node (exclusive)
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent\+Node} & H\+T\+ML node (and corresponding level) where the parser starts \\
+\hline
+\mbox{\texttt{ in}}  & {\em first\+Bound\+Node} & H\+T\+ML node on the same level that marks the start of surrounging \\
+\hline
+\mbox{\texttt{ in}}  & {\em second\+Bound\+Node} & H\+T\+ML node on the same level that marks the end of surrouding \\
+\hline
+\mbox{\texttt{ in}}  & {\em attribute\+Name} & Name of the attribute where all nodes are checked against (e.\+g. \char`\"{}class\char`\"{}, \char`\"{}title\char`\"{}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em attribute\+Value} & Value that the attribute must contain (e.\+g. \char`\"{}21.\+07.\+22\char`\"{}, \char`\"{}category\char`\"{}, \char`\"{}row\char`\"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of H\+T\+ML nodes that are matching the conditions 
+\end{DoxyReturn}
+get the indexes of the bound nodes
+
+iterate through the nodes that are between the bounds
+
+add all nodes that are Html\+Nodes (not Html\+Text\+Nodes)
+
+Definition at line 126 of file Html\+Parser.\+cs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{128         \{}
+\DoxyCodeLine{129             List <HtmlAgilityPack.HtmlNode?> Nodes = \textcolor{keyword}{new} List <HtmlAgilityPack.HtmlNode?>();}
+\DoxyCodeLine{133             \textcolor{keywordtype}{int} indexFirtBound = parentNode.ChildNodes.IndexOf(firstBoundNode);}
+\DoxyCodeLine{134             \textcolor{keywordtype}{int} indexSecondBound = parentNode.ChildNodes.IndexOf(secondBoundNode);}
+\DoxyCodeLine{138             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = indexFirtBound + 1; i<indexSecondBound; i++)}
+\DoxyCodeLine{139             \{}
+\DoxyCodeLine{143                 \textcolor{keywordflow}{if} (parentNode.ChildNodes[i].NodeType == HtmlNodeType.Element)}
+\DoxyCodeLine{144                 \{}
+\DoxyCodeLine{145                     Nodes.Add(parentNode.ChildNodes[i]);}
+\DoxyCodeLine{146                 \}}
+\DoxyCodeLine{147             \}}
+\DoxyCodeLine{148             \textcolor{keywordflow}{return} Nodes;}
+\DoxyCodeLine{149         \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/network\+\_\+drives/\+T\+U\+B\+A\+F-\/\+Z\+F\+S1-\/\+S\+M\+B/02\+\_\+\+S\+S\+\_\+22/\+Softwareentwicklung/\+Exam\+\_\+\+Project/git\+\_\+repo/swe-\/sose2022\+\_\+exam-\/repository/\+Open\+Mensa\+\_\+\+Parser/\+Open\+Mensa\+\_\+\+Parser/\mbox{\hyperlink{HtmlParser_8cs}{Html\+Parser.\+cs}}\end{DoxyCompactItemize}
